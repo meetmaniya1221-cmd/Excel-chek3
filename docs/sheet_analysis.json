@@ -1,0 +1,6066 @@
+{
+ "sheets": [
+  "Region",
+  "Analysis Report",
+  "PP",
+  "Temp",
+  "Payment",
+  "Sales",
+  "Update Data"
+ ],
+ "extern_map": {
+  "0": [
+   4,
+   4
+  ],
+  "1": [
+   5,
+   5
+  ],
+  "2": [
+   3,
+   3
+  ],
+  "3": [
+   -2,
+   -2
+  ],
+  "4": [
+   1,
+   1
+  ]
+ },
+ "defined_names": [
+  {
+   "name": "_FilterDatabase",
+   "flags": 33,
+   "itab": 4,
+   "refersTo": "Payment!$A$2:$CG$1048576"
+  },
+  {
+   "name": "_FilterDatabase",
+   "flags": 33,
+   "itab": 5,
+   "refersTo": "Sales!$A$2:$Q$2"
+  },
+  {
+   "name": "_FilterDatabase",
+   "flags": 33,
+   "itab": 3,
+   "refersTo": "Temp!$A$4:$CG$58197"
+  },
+  {
+   "name": "_xlfn.IFERROR",
+   "flags": 131083,
+   "itab": -1,
+   "refersTo": "#NAME?"
+  },
+  {
+   "name": "_xlfn.XLOOKUP",
+   "flags": 131083,
+   "itab": -1,
+   "refersTo": "#NAME?"
+  },
+  {
+   "name": "AdvanceFilter_Data",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "Analysis_Report",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "Calci",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "CollapseAll",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "CollapseAll2",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "Criteria",
+   "flags": 32,
+   "itab": 3,
+   "refersTo": "Temp!$A$1:$B$2"
+  },
+  {
+   "name": "DataSourceSelection",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "ExpandAll",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "ExpandAll2",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "Extract",
+   "flags": 32,
+   "itab": 3,
+   "refersTo": "Temp!$A$4:$CG$4"
+  },
+  {
+   "name": "ImageLocation2",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "RefreshAll",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "SalesClick",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "Slicer_Claim_Status",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_Compansation_Type",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_Courier_Company",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_Live_Order_Status_2",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_OD",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_OM",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_OM1",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_Overcharged",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_OY",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_OY1",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_PD1",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_PM2",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_PY2",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "Slicer_Recovery_Type",
+   "flags": 16,
+   "itab": -1,
+   "refersTo": "#N/A"
+  },
+  {
+   "name": "SortAtoZ",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  },
+  {
+   "name": "Whatsapp",
+   "flags": 13,
+   "itab": -1,
+   "refersTo": ""
+  }
+ ],
+ "results": {
+  "Region": {
+   "sheet": "Region",
+   "file": "sheet1",
+   "dims": "A1:BN2886",
+   "rows_with_data": 2886,
+   "last_row": 2886,
+   "max_col": "U",
+   "hidden_cols": [
+    [
+     "V",
+     "V"
+    ],
+    [
+     "W",
+     "W"
+    ],
+    [
+     "X",
+     "X"
+    ],
+    [
+     "Y",
+     "AD"
+    ],
+    [
+     "AF",
+     "AG"
+    ],
+    [
+     "AH",
+     "AH"
+    ],
+    [
+     "AI",
+     "AJ"
+    ],
+    [
+     "AK",
+     "AK"
+    ],
+    [
+     "AL",
+     "AL"
+    ],
+    [
+     "AM",
+     "AM"
+    ],
+    [
+     "AN",
+     "AN"
+    ],
+    [
+     "AO",
+     "BN"
+    ],
+    [
+     "BO",
+     "XFD"
+    ]
+   ],
+   "autofilter": null,
+   "protection": "000000000000010000000100",
+   "merges_n": 0,
+   "merges_sample": [],
+   "headers": {
+    "B1": "Start Date",
+    "B2": 45637.0,
+    "B3": "End Date",
+    "B4": 45864.0,
+    "E11": " Total Sales",
+    "F11": "Settlement",
+    "G11": "Recovery Amt",
+    "H11": "Claims Amt",
+    "I11": "Compensation Amt",
+    "J11": " Gross Profit or  Loss",
+    "K11": " Purchase",
+    "L11": " Total Order",
+    "M11": " Delivered",
+    "N11": " RTO",
+    "O11": " Customer Return",
+    "P11": " Exchange",
+    "Q11": " Cancelled",
+    "R11": " Recovery Qty",
+    "S11": " Claim Qty",
+    "T11": "Shipping Charge (Excl.GST)",
+    "U11": "Return Shipping Charge (Excl.GST)",
+    "A12": "RTO",
+    "B12": "DTO",
+    "C12": "Average",
+    "D12": "Paid",
+    "E12": 7336672.0,
+    "F12": 5225069.900000001,
+    "G12": -31887.680001999986,
+    "H12": 184651.39999999994,
+    "I12": 4053.43,
+    "J12": 1313397.899999999,
+    "K12": 3911672.0,
+    "L12": 40994.0,
+    "M12": 25221.0,
+    "N12": 13492.0,
+    "O12": 2281.0,
+    "P12": 202.0,
+    "Q12": 135.0,
+    "R12": 2060.0,
+    "S12": 1252.0,
+    "T12": 0.0,
+    "U12": 0.0,
+    "A13": 0.36279926335174956,
+    "B13": 0.1178548490687219,
+    "C13": 40.902080924855476,
+    "D13": "Uttar Pradesh",
+    "E13": 801868.0,
+    "F13": 562562.0800000001,
+    "G13": -2101.42,
+    "H13": 26488.72,
+    "I13": 448.84,
+    "J13": 127369.07999999994,
+    "K13": 435193.0,
+    "L13": 4887.0,
+    "M13": 2772.0,
+    "N13": 1773.0,
+    "O13": 342.0,
+    "P13": 25.0,
+    "Q13": 11.0,
+    "R13": 126.0,
+    "S13": 180.0,
+    "T13": 0.0,
+    "U13": 0.0,
+    "A14": 0.364660025985275,
+    "B14": 0.1111111111111111,
+    "C14": 39.26992501704147,
+    "D14": ",.;'.,;5",
+    "E14": 374095.0,
+    "F14": 261424.9800000002,
+    "G14": -667.8400000000001,
+    "H14": 10083.59,
+    "I14": 448.84,
+    "J14": 57608.97999999984,
+    "K14": 203816.0,
+    "L14": 2309.0,
+    "M14": 1311.0,
+    "N14": 842.0,
+    "O14": 156.0,
+    "P14": 7.0,
+    "Q14": 5.0,
+    "R14": 27.0,
+    "S14": 73.0,
+    "T14": 0.0,
+    "U14": 0.0,
+    "A15": 0.35268346111719606,
+    "B15": 0.10152284263959391,
+    "C15": 41.5815905245347,
+    "D15": "''..1..'",
+    "E15": 151764.0,
+    "F15": 107794.71999999997,
+    "G15": -405.07000000000005,
+    "H15": 5036.4,
+    "I15": 0.0,
+    "J15": 24574.720000000005,
+    "K15": 83220.0,
+    "L15": 913.0,
+    "M15": 535.0,
+    "N15": 322.0,
+    "O15": 56.0,
+    "P15": 4.0,
+    "Q15": 0.0,
+    "R15": 20.0,
+    "S15": 34.0,
+    "T15": 0.0,
+    "U15": 0.0
+   },
+   "dump": {
+    "1": {
+     "A": null,
+     "B": "Start Date",
+     "C": null,
+     "E": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "2": {
+     "A": null,
+     "B": 45637.0,
+     "C": null,
+     "E": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "3": {
+     "A": null,
+     "B": "End Date",
+     "C": null,
+     "D": null,
+     "E": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "4": {
+     "A": null,
+     "B": 45864.0,
+     "C": null,
+     "E": null,
+     "F": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "5": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "E": null,
+     "F": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "6": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "E": null,
+     "H": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "7": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": null,
+     "H": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "8": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": null,
+     "H": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "9": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": null,
+     "F": null,
+     "G": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "10": {
+     "B": null,
+     "C": null,
+     "E": null,
+     "G": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null
+    },
+    "11": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": " Total Sales",
+     "F": "Settlement",
+     "G": "Recovery Amt",
+     "H": "Claims Amt",
+     "I": "Compensation Amt",
+     "J": " Gross Profit or  Loss",
+     "K": " Purchase",
+     "L": " Total Order",
+     "M": " Delivered",
+     "N": " RTO",
+     "O": " Customer Return",
+     "P": " Exchange",
+     "Q": " Cancelled",
+     "R": " Recovery Qty",
+     "S": " Claim Qty",
+     "T": "Shipping Charge (Excl.GST)",
+     "U": "Return Shipping Charge (Excl.GST)"
+    },
+    "12": {
+     "A": "RTO",
+     "B": "DTO",
+     "C": "Average",
+     "D": "Paid",
+     "E": 7336672.0,
+     "F": 5225069.900000001,
+     "G": -31887.680001999986,
+     "H": 184651.39999999994,
+     "I": 4053.43,
+     "J": 1313397.899999999,
+     "K": 3911672.0,
+     "L": 40994.0,
+     "M": 25221.0,
+     "N": 13492.0,
+     "O": 2281.0,
+     "P": 202.0,
+     "Q": 135.0,
+     "R": 2060.0,
+     "S": 1252.0,
+     "T": 0.0,
+     "U": 0.0
+    },
+    "13": {
+     "A": 0.36279926335174956,
+     "B": 0.1178548490687219,
+     "C": 40.902080924855476,
+     "D": "Uttar Pradesh",
+     "E": 801868.0,
+     "F": 562562.0800000001,
+     "G": -2101.42,
+     "H": 26488.72,
+     "I": 448.84,
+     "J": 127369.07999999994,
+     "K": 435193.0,
+     "L": 4887.0,
+     "M": 2772.0,
+     "N": 1773.0,
+     "O": 342.0,
+     "P": 25.0,
+     "Q": 11.0,
+     "R": 126.0,
+     "S": 180.0,
+     "T": 0.0,
+     "U": 0.0
+    },
+    "14": {
+     "A": 0.364660025985275,
+     "B": 0.1111111111111111,
+     "C": 39.26992501704147,
+     "D": ",.;'.,;5",
+     "E": 374095.0,
+     "F": 261424.9800000002,
+     "G": -667.8400000000001,
+     "H": 10083.59,
+     "I": 448.84,
+     "J": 57608.97999999984,
+     "K": 203816.0,
+     "L": 2309.0,
+     "M": 1311.0,
+     "N": 842.0,
+     "O": 156.0,
+     "P": 7.0,
+     "Q": 5.0,
+     "R": 27.0,
+     "S": 73.0,
+     "T": 0.0,
+     "U": 0.0
+    }
+   },
+   "colstats": {
+    "A": {
+     "nval": 11,
+     "nfml": 2425,
+     "types": {
+      "blank": 10,
+      "str": 1
+     },
+     "formulas": {
+      "!DECODE_ERR(unpack_from requires a buffer of at least ROW bytes for unpacking ROW bytes at offset ROW (actual buffer size is ROW))!": [
+       2423,
+       "A15",
+       "!DECODE_ERR(unpack_from requires a buffer of at least 7 bytes for unpacking 6 bytes at offset 1 (actual buffer size is 5))!"
+      ],
+      "?PTG4ROW?": [
+       2,
+       "A13",
+       "?PTG44?"
+      ]
+     }
+    },
+    "B": {
+     "nval": 10,
+     "nfml": 2427,
+     "types": {
+      "str": 3,
+      "blank": 7
+     },
+     "formulas": {
+      "!DECODE_ERR(unpack_from requires a buffer of at least ROW bytes for unpacking ROW bytes at offset ROW (actual buffer size is ROW))!": [
+       2422,
+       "B16",
+       "!DECODE_ERR(unpack_from requires a buffer of at least 7 bytes for unpacking 6 bytes at offset 1 (actual buffer size is 5))!"
+      ],
+      "?PTG4ROW?": [
+       3,
+       "B13",
+       "?PTG44?"
+      ],
+      "?PTG5A?": [
+       2,
+       "B2",
+       "?PTG5A?"
+      ]
+     }
+    },
+    "C": {
+     "nval": 12,
+     "nfml": 2425,
+     "types": {
+      "blank": 11,
+      "str": 1
+     },
+     "formulas": {
+      "!DECODE_ERR(unpack_from requires a buffer of at least ROW bytes for unpacking ROW bytes at offset ROW (actual buffer size is ROW))!": [
+       2422,
+       "C16",
+       "!DECODE_ERR(unpack_from requires a buffer of at least 7 bytes for unpacking 6 bytes at offset 1 (actual buffer size is 5))!"
+      ],
+      "?PTG4ROW?": [
+       3,
+       "C13",
+       "?PTG44?"
+      ]
+     }
+    },
+    "D": {
+     "nval": 987,
+     "nfml": 0,
+     "types": {
+      "blank": 5,
+      "str": 958,
+      "num": 24
+     },
+     "formulas": {}
+    },
+    "E": {
+     "nval": 993,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "F": {
+     "nval": 986,
+     "nfml": 0,
+     "types": {
+      "blank": 3,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "G": {
+     "nval": 985,
+     "nfml": 0,
+     "types": {
+      "blank": 2,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "H": {
+     "nval": 992,
+     "nfml": 0,
+     "types": {
+      "blank": 9,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "I": {
+     "nval": 983,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "J": {
+     "nval": 990,
+     "nfml": 0,
+     "types": {
+      "blank": 7,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "K": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "L": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "M": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "N": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "O": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "P": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "Q": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "R": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "S": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "T": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    },
+    "U": {
+     "nval": 2886,
+     "nfml": 0,
+     "types": {
+      "blank": 1903,
+      "str": 1,
+      "num": 982
+     },
+     "formulas": {}
+    }
+   },
+   "unknown_ids": {
+    "461": 9,
+    "463": 9,
+    "464": 9,
+    "462": 9,
+    "1079": 1,
+    "1081": 1,
+    "1082": 1,
+    "1080": 1
+   }
+  },
+  "Analysis Report": {
+   "sheet": "Analysis Report",
+   "file": "sheet2",
+   "dims": "A1:BG84035",
+   "rows_with_data": 84035,
+   "last_row": 84035,
+   "max_col": "AM",
+   "hidden_cols": [],
+   "autofilter": null,
+   "protection": "000000000000010000000100",
+   "merges_n": 0,
+   "merges_sample": [],
+   "headers": {
+    "B1": "Start Date",
+    "B2": 45637.0,
+    "C2": "-500",
+    "D2": "-150",
+    "B3": "End Date",
+    "B4": 45864.0,
+    "D9": "TotalPayment",
+    "E9": "(All)",
+    "F10": "Settlement",
+    "E11": " Net Sales",
+    "F11": "Sum of Final Settlement Amount",
+    "G11": "Recovery Amt",
+    "H11": "Claims Amt",
+    "I11": "Compensation Amt",
+    "J11": " Gross Profit or  Loss",
+    "K11": " Purchase",
+    "L11": " Total Order",
+    "M11": " Delivered",
+    "N11": " RTO",
+    "O11": " Customer Return",
+    "P11": " Exchange",
+    "Q11": " Cancelled",
+    "R11": " Recovery Qty",
+    "S11": " TCS",
+    "T11": " TDS",
+    "U11": " Claim Qty",
+    "V11": "Profit/Loss With Gst",
+    "W11": "Ads Cost",
+    "X11": "Referral Amount",
+    "Y11": " Meesho GST Credits",
+    "Z11": " Purchase Gst Credit",
+    "AA11": " Sales Gst Debit",
+    "AB11": " Available GST Credit",
+    "AC11": "Shipping Charge (Excl.GST)",
+    "AD11": "Return Charges",
+    "AE11": " Avg Settlement",
+    "AF11": "Return Loss",
+    "AG11": " RTO Packaging Loss",
+    "AH11": " Final P & L",
+    "AI11": " Final PL with GST",
+    "AJ11": " Avg Final PL with GST",
+    "AK11": " Avg Return Charges",
+    "AL11": " Shipping Diff",
+    "AM11": " Avg Final PL without GST",
+    "A12": "RTO",
+    "B12": "DTO",
+    "C12": "Average",
+    "D12": "Paid",
+    "E12": 7336672.0,
+    "F12": 5225069.900000047,
+    "G12": -31887.68000200003,
+    "H12": 184651.4000000003,
+    "I12": 4053.4300000000003,
+    "J12": 1313397.9000000698,
+    "K12": 3911672.0,
+    "L12": 40994.0,
+    "M12": 25221.0,
+    "N12": 13492.0,
+    "O12": 2281.0,
+    "P12": 202.0,
+    "Q12": 135.0,
+    "R12": 2060.0,
+    "S12": -31083.93000000263,
+    "T12": -6201.76999995918,
+    "U12": 1252.0,
+    "V12": 414761.9595893588,
+    "W12": -168111.27999999994,
+    "X12": 0.0,
+    "Y12": 365986.5260300599,
+    "Z12": 0.0,
+    "AA12": -1096511.186440693,
+    "AB12": -730524.6604105155,
+    "AC12": 0.0,
+    "AD12": -373187.3606414795,
+    "AE12": 207.16318690032696,
+    "AF12": 186.0,
+    "AG12": 5208.0,
+    "AH12": 1150680.62000007,
+    "AI12": 420155.9595895541,
+    "AJ12": 15.277287455077962,
+    "AK12": -13.631568905580945,
+    "AL12": 333518.0,
+    "AM12": 41.839888735367246,
+    "A13": 0.33392,
+    "B13": 0.08455440787893347,
+    "C13": 45.60022900152099,
+    "D13": ",.;'.,;5",
+    "E13": 3285192.0,
+    "F13": 2328801.26000001,
+    "G13": -9084.660000000005,
+    "H13": 68729.90999999995,
+    "I13": 1277.9,
+    "J13": 569501.2599999956,
+    "K13": 1759300.0,
+    "L13": 18750.0,
+    "M13": 11518.0,
+    "N13": 6261.0,
+    "O13": 971.0,
+    "P13": 85.0,
+    "Q13": 33.0,
+    "R13": 404.0,
+    "S13": -13917.879999999665,
+    "T13": -2773.0499999599606,
+    "U13": 503.0,
+    "V13": 231643.08447360058,
+    "W13": 0.0,
+    "X13": 0.0,
+    "Y13": 152637.40074479475,
+    "Z13": 0.0,
+    "AA13": -490495.5762711713,
+    "AB13": -337858.17552637536,
+    "AC13": 0.0,
+    "AD13": -160628.6404380798,
+    "AE13": 202.1704366698507,
+    "AF13": 0.0,
+    "AG13": 0.0,
+    "AH13": 569501.2599999956,
+    "AI13": 231643.08447362023,
+    "AJ13": 18.547768794428716,
+    "AK13": -13.06348734857513,
+    "AL13": 143254.0,
+    "AM13": 45.60022900152099
+   },
+   "dump": {
+    "1": {
+     "A": null,
+     "B": "Start Date",
+     "C": null,
+     "D": null,
+     "E": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null
+    },
+    "2": {
+     "A": null,
+     "B": 45637.0,
+     "C": "-500",
+     "D": "-150",
+     "E": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null
+    },
+    "3": {
+     "A": null,
+     "B": "End Date",
+     "C": null,
+     "D": null,
+     "E": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null
+    },
+    "4": {
+     "A": null,
+     "B": 45864.0,
+     "C": null,
+     "D": null,
+     "E": null,
+     "F": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null
+    },
+    "5": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": null,
+     "F": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null
+    },
+    "6": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": null,
+     "H": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null
+    },
+    "7": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": null,
+     "H": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null
+    },
+    "8": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": null,
+     "H": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null
+    },
+    "9": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": "TotalPayment",
+     "E": "(All)",
+     "F": null,
+     "G": null,
+     "H": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null
+    },
+    "10": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": null,
+     "F": "Settlement",
+     "G": null,
+     "J": null,
+     "K": null,
+     "L": null,
+     "M": null,
+     "N": null,
+     "O": null,
+     "P": null,
+     "Q": null,
+     "R": null,
+     "S": null,
+     "T": null,
+     "U": null,
+     "V": null,
+     "W": null,
+     "X": null,
+     "Y": null
+    },
+    "11": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": " Net Sales",
+     "F": "Sum of Final Settlement Amount",
+     "G": "Recovery Amt",
+     "H": "Claims Amt",
+     "I": "Compensation Amt",
+     "J": " Gross Profit or  Loss",
+     "K": " Purchase",
+     "L": " Total Order",
+     "M": " Delivered",
+     "N": " RTO",
+     "O": " Customer Return",
+     "P": " Exchange",
+     "Q": " Cancelled",
+     "R": " Recovery Qty",
+     "S": " TCS",
+     "T": " TDS",
+     "U": " Claim Qty",
+     "V": "Profit/Loss With Gst",
+     "W": "Ads Cost",
+     "X": "Referral Amount",
+     "Y": " Meesho GST Credits",
+     "Z": " Purchase Gst Credit",
+     "AA": " Sales Gst Debit",
+     "AB": " Available GST Credit",
+     "AC": "Shipping Charge (Excl.GST)",
+     "AD": "Return Charges",
+     "AE": " Avg Settlement",
+     "AF": "Return Loss",
+     "AG": " RTO Packaging Loss",
+     "AH": " Final P & L",
+     "AI": " Final PL with GST",
+     "AJ": " Avg Final PL with GST",
+     "AK": " Avg Return Charges",
+     "AL": " Shipping Diff",
+     "AM": " Avg Final PL without GST"
+    },
+    "12": {
+     "A": "RTO",
+     "B": "DTO",
+     "C": "Average",
+     "D": "Paid",
+     "E": 7336672.0,
+     "F": 5225069.900000047,
+     "G": -31887.68000200003,
+     "H": 184651.4000000003,
+     "I": 4053.4300000000003,
+     "J": 1313397.9000000698,
+     "K": 3911672.0,
+     "L": 40994.0,
+     "M": 25221.0,
+     "N": 13492.0,
+     "O": 2281.0,
+     "P": 202.0,
+     "Q": 135.0,
+     "R": 2060.0,
+     "S": -31083.93000000263,
+     "T": -6201.76999995918,
+     "U": 1252.0,
+     "V": 414761.9595893588,
+     "W": -168111.27999999994,
+     "X": 0.0,
+     "Y": 365986.5260300599,
+     "Z": 0.0,
+     "AA": -1096511.186440693,
+     "AB": -730524.6604105155,
+     "AC": 0.0,
+     "AD": -373187.3606414795,
+     "AE": 207.16318690032696,
+     "AF": 186.0,
+     "AG": 5208.0,
+     "AH": 1150680.62000007,
+     "AI": 420155.9595895541,
+     "AJ": 15.277287455077962,
+     "AK": -13.631568905580945,
+     "AL": 333518.0,
+     "AM": 41.839888735367246
+    },
+    "13": {
+     "A": 0.33392,
+     "B": 0.08455440787893347,
+     "C": 45.60022900152099,
+     "D": ",.;'.,;5",
+     "E": 3285192.0,
+     "F": 2328801.26000001,
+     "G": -9084.660000000005,
+     "H": 68729.90999999995,
+     "I": 1277.9,
+     "J": 569501.2599999956,
+     "K": 1759300.0,
+     "L": 18750.0,
+     "M": 11518.0,
+     "N": 6261.0,
+     "O": 971.0,
+     "P": 85.0,
+     "Q": 33.0,
+     "R": 404.0,
+     "S": -13917.879999999665,
+     "T": -2773.0499999599606,
+     "U": 503.0,
+     "V": 231643.08447360058,
+     "W": 0.0,
+     "X": 0.0,
+     "Y": 152637.40074479475,
+     "Z": 0.0,
+     "AA": -490495.5762711713,
+     "AB": -337858.17552637536,
+     "AC": 0.0,
+     "AD": -160628.6404380798,
+     "AE": 202.1704366698507,
+     "AF": 0.0,
+     "AG": 0.0,
+     "AH": 569501.2599999956,
+     "AI": 231643.08447362023,
+     "AJ": 18.547768794428716,
+     "AK": -13.06348734857513,
+     "AL": 143254.0,
+     "AM": 45.60022900152099
+    }
+   },
+   "colstats": {
+    "A": {
+     "nval": 12,
+     "nfml": 2424,
+     "types": {
+      "blank": 11,
+      "str": 1
+     },
+     "formulas": {
+      "!DECODE_ERR(unpack_from requires a buffer of at least ROW bytes for unpacking ROW bytes at offset ROW (actual buffer size is ROW))!": [
+       2423,
+       "A14",
+       "!DECODE_ERR(unpack_from requires a buffer of at least 7 bytes for unpacking 6 bytes at offset 1 (actual buffer size is 5))!"
+      ],
+      "?PTG4ROW?": [
+       1,
+       "A13",
+       "?PTG44?"
+      ]
+     }
+    },
+    "B": {
+     "nval": 12,
+     "nfml": 2424,
+     "types": {
+      "str": 3,
+      "num": 2,
+      "blank": 7
+     },
+     "formulas": {
+      "!DECODE_ERR(unpack_from requires a buffer of at least ROW bytes for unpacking ROW bytes at offset ROW (actual buffer size is ROW))!": [
+       2423,
+       "B14",
+       "!DECODE_ERR(unpack_from requires a buffer of at least 7 bytes for unpacking 6 bytes at offset 1 (actual buffer size is 5))!"
+      ],
+      "?PTG4ROW?": [
+       1,
+       "B13",
+       "?PTG44?"
+      ]
+     }
+    },
+    "C": {
+     "nval": 12,
+     "nfml": 2424,
+     "types": {
+      "blank": 10,
+      "str": 2
+     },
+     "formulas": {
+      "!DECODE_ERR(unpack_from requires a buffer of at least ROW bytes for unpacking ROW bytes at offset ROW (actual buffer size is ROW))!": [
+       2423,
+       "C14",
+       "!DECODE_ERR(unpack_from requires a buffer of at least 7 bytes for unpacking 6 bytes at offset 1 (actual buffer size is 5))!"
+      ],
+      "?PTG4ROW?": [
+       1,
+       "C13",
+       "?PTG44?"
+      ]
+     }
+    },
+    "D": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 9,
+      "str": 82418,
+      "num": 1608
+     },
+     "formulas": {}
+    },
+    "E": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 9,
+      "str": 2,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "F": {
+     "nval": 84029,
+     "nfml": 0,
+     "types": {
+      "blank": 3,
+      "str": 2,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "G": {
+     "nval": 84027,
+     "nfml": 0,
+     "types": {
+      "blank": 2,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "H": {
+     "nval": 84034,
+     "nfml": 0,
+     "types": {
+      "blank": 9,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "I": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "J": {
+     "nval": 84032,
+     "nfml": 0,
+     "types": {
+      "blank": 7,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "K": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "L": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "M": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "N": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "O": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "P": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "Q": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "R": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "S": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "T": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "U": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "V": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "W": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "X": {
+     "nval": 84035,
+     "nfml": 0,
+     "types": {
+      "blank": 10,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "Y": {
+     "nval": 84026,
+     "nfml": 0,
+     "types": {
+      "blank": 1,
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "Z": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AA": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AB": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AC": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AD": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AE": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AF": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AG": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AH": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AI": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AJ": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 81113,
+      "err": 2911
+     },
+     "formulas": {}
+    },
+    "AK": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 53063,
+      "err": 30961
+     },
+     "formulas": {}
+    },
+    "AL": {
+     "nval": 84025,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 84024
+     },
+     "formulas": {}
+    },
+    "AM": {
+     "nval": 1,
+     "nfml": 9811,
+     "types": {
+      "str": 1
+     },
+     "formulas": {
+      "!DECODE_ERR(unpack_from requires a buffer of at least ROW bytes for unpacking ROW bytes at offset ROW (actual buffer size is ROW))!": [
+       9811,
+       "AM12",
+       "!DECODE_ERR(unpack_from requires a buffer of at least 7 bytes for unpacking 6 bytes at offset 1 (actual buffer size is 5))!"
+      ]
+     }
+    }
+   },
+   "unknown_ids": {
+    "461": 8,
+    "463": 8,
+    "464": 8,
+    "462": 8,
+    "1079": 1,
+    "1081": 1,
+    "1082": 1,
+    "1080": 1
+   }
+  },
+  "PP": {
+   "sheet": "PP",
+   "file": "sheet3",
+   "dims": "A1:N229",
+   "rows_with_data": 229,
+   "last_row": 229,
+   "max_col": "N",
+   "hidden_cols": [],
+   "autofilter": null,
+   "protection": "000000000000010000000100",
+   "merges_n": 0,
+   "merges_sample": [],
+   "headers": {
+    "A1": "SKU",
+    "B1": "Product Name",
+    "C1": "Selling GST %",
+    "D1": "Date",
+    "E1": "Product Cost",
+    "F1": "Pakaging Cost",
+    "G1": "GST %",
+    "H1": "Is Product Cost With GST ?",
+    "I1": "Total Tax",
+    "J1": "Total Cost",
+    "K1": "Order ID",
+    "L1": "Substitute SKU",
+    "M1": "E1",
+    "N1": "E2",
+    "A2": "Ads Cost",
+    "B2": "Ads Cost",
+    "D2": 43831.0,
+    "E2": 1.0,
+    "F2": 1.0,
+    "G2": 0.18,
+    "I2": 0.15254237288135586,
+    "J2": 2.0,
+    "K2": 0.0,
+    "L2": "Ads Cost",
+    "A3": "Referral Payments",
+    "B3": "Referral Payments",
+    "D3": 43831.0,
+    "E3": 1.0,
+    "F3": 1.0,
+    "G3": 0.18,
+    "I3": 0.15254237288135586,
+    "J3": 2.0,
+    "K3": 0.0,
+    "L3": "Referral Payments",
+    "A4": "smart furniture pad-B",
+    "D4": 43831.0,
+    "E4": 48.0,
+    "F4": 3.0,
+    "G4": 0.18,
+    "H4": "N",
+    "I4": 8.64,
+    "J4": 59.64,
+    "K4": "84104596814790848_1",
+    "L4": "smart furniture pad_B",
+    "A5": "GREY- FAN DUSTER-0N",
+    "D5": 43831.0,
+    "E5": 65.0,
+    "F5": 8.0,
+    "G5": 0.18,
+    "H5": "N",
+    "I5": 11.7,
+    "J5": 84.7,
+    "K5": "84154236027934016_1",
+    "L5": "GREY_ FAN DUSTER_0N",
+    "A6": " 24 - Green curved shape dabbaa-Bb",
+    "D6": 43831.0,
+    "E6": 240.0,
+    "F6": 9.0,
+    "G6": 0.18,
+    "H6": "N",
+    "I6": 43.199999999999996,
+    "J6": 292.2,
+    "K6": "82851116186587776_1",
+    "L6": " 24 _ Green curved shape dabbaa_Bb"
+   },
+   "dump": {
+    "1": {
+     "A": "SKU",
+     "B": "Product Name",
+     "C": "Selling GST %",
+     "D": "Date",
+     "E": "Product Cost",
+     "F": "Pakaging Cost",
+     "G": "GST %",
+     "H": "Is Product Cost With GST ?",
+     "I": "Total Tax",
+     "J": "Total Cost",
+     "K": "Order ID",
+     "L": "Substitute SKU",
+     "M": "E1",
+     "N": "E2"
+    },
+    "2": {
+     "A": "Ads Cost",
+     "B": "Ads Cost",
+     "D": 43831.0,
+     "E": 1.0,
+     "F": 1.0,
+     "G": 0.18,
+     "I": 0.15254237288135586,
+     "J": 2.0,
+     "K": 0.0,
+     "L": "Ads Cost"
+    },
+    "3": {
+     "A": "Referral Payments",
+     "B": "Referral Payments",
+     "D": 43831.0,
+     "E": 1.0,
+     "F": 1.0,
+     "G": 0.18,
+     "I": 0.15254237288135586,
+     "J": 2.0,
+     "K": 0.0,
+     "L": "Referral Payments"
+    },
+    "4": {
+     "A": "smart furniture pad-B",
+     "D": 43831.0,
+     "E": 48.0,
+     "F": 3.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 8.64,
+     "J": 59.64,
+     "K": "84104596814790848_1",
+     "L": "smart furniture pad_B"
+    },
+    "5": {
+     "A": "GREY- FAN DUSTER-0N",
+     "D": 43831.0,
+     "E": 65.0,
+     "F": 8.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 11.7,
+     "J": 84.7,
+     "K": "84154236027934016_1",
+     "L": "GREY_ FAN DUSTER_0N"
+    },
+    "6": {
+     "A": " 24 - Green curved shape dabbaa-Bb",
+     "D": 43831.0,
+     "E": 240.0,
+     "F": 9.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 43.199999999999996,
+     "J": 292.2,
+     "K": "82851116186587776_1",
+     "L": " 24 _ Green curved shape dabbaa_Bb"
+    },
+    "7": {
+     "A": "200PC Silver Button with Pliers-b",
+     "D": 43831.0,
+     "E": 100.0,
+     "F": 6.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 18.0,
+     "J": 124.0,
+     "K": "83782772994336448_1",
+     "L": "200PC Silver Button with Pliers_b"
+    },
+    "8": {
+     "A": "Smart furniture pad-A",
+     "D": 43831.0,
+     "E": 48.0,
+     "F": 3.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 8.64,
+     "J": 59.64,
+     "K": "83631343829390656_1",
+     "L": "Smart furniture pad_A"
+    },
+    "9": {
+     "A": " 24 in 1 screwdriver set-U",
+     "D": 43831.0,
+     "E": 40.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 7.199999999999999,
+     "J": 52.2,
+     "K": "82120084063769216_1",
+     "L": " 24 in 1 screwdriver set_U"
+    },
+    "10": {
+     "A": "24 in 1 screwdriver set-V",
+     "D": 43831.0,
+     "E": 40.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 7.199999999999999,
+     "J": 52.2,
+     "K": "81933096266110272_1",
+     "L": "24 in 1 screwdriver set_V"
+    },
+    "11": {
+     "A": "gas lighter-dd",
+     "D": 43831.0,
+     "E": 90.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 16.2,
+     "J": 111.2,
+     "K": "88193424859731264_1",
+     "L": "gas lighter_dd"
+    },
+    "12": {
+     "A": "200PC Silver Button with Pliers-c",
+     "D": 43831.0,
+     "E": 100.0,
+     "F": 6.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 18.0,
+     "J": 124.0,
+     "K": "83631842842047296_1",
+     "L": "200PC Silver Button with Pliers_c"
+    },
+    "13": {
+     "A": "Gas lighter-Ce",
+     "D": 43831.0,
+     "E": 90.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 16.2,
+     "J": 111.2,
+     "K": "84275907879752320_1",
+     "L": "Gas lighter_Ce"
+    },
+    "14": {
+     "A": "Red apple basket-A",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 15.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 127.1,
+     "K": "81429193385716608_1",
+     "L": "Red apple basket_A"
+    },
+    "15": {
+     "A": "Gas lighter-z",
+     "D": 43831.0,
+     "E": 90.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 16.2,
+     "J": 111.2,
+     "K": "83764522944266432_1",
+     "L": "Gas lighter_z"
+    },
+    "16": {
+     "A": "200PC Silver Button with Pliers-Z",
+     "D": 43831.0,
+     "E": 100.0,
+     "F": 6.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 18.0,
+     "J": 124.0,
+     "K": "83643790573311296_1",
+     "L": "200PC Silver Button with Pliers_Z"
+    },
+    "17": {
+     "A": "2000ml Transparent motivational water bottle-0Iw",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "85728201968063808_1",
+     "L": "2000ml Transparent motivational water bottle_0Iw"
+    },
+    "18": {
+     "A": "Red apple basket-E",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 15.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 127.1,
+     "K": "80908866686202193_1",
+     "L": "Red apple basket_E"
+    },
+    "19": {
+     "A": "Gas lighter-y",
+     "D": 43831.0,
+     "E": 90.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 16.2,
+     "J": 111.2,
+     "K": "89277561792238912_1",
+     "L": "Gas lighter_y"
+    },
+    "20": {
+     "A": "24 in 1 screwdriver set-b ",
+     "D": 43831.0,
+     "E": 40.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 7.199999999999999,
+     "J": 52.2,
+     "K": "80662398243689088_1",
+     "L": "24 in 1 screwdriver set_b "
+    },
+    "21": {
+     "A": "1-Blue Bus Shape Water Bottle-I",
+     "D": 43831.0,
+     "E": 210.0,
+     "F": 4.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 37.8,
+     "J": 251.8,
+     "K": "85561711160601472_1",
+     "L": "1_Blue Bus Shape Water Bottle_I"
+    },
+    "22": {
+     "A": "6-1800 ml transparent fridge box-F",
+     "D": 43831.0,
+     "E": 162.0,
+     "F": 6.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 29.16,
+     "J": 197.16,
+     "K": "80486482923105154_1",
+     "L": "6_1800 ml transparent fridge box_F"
+    },
+    "23": {
+     "A": "Gas lighter-zz",
+     "D": 43831.0,
+     "E": 90.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 16.2,
+     "J": 111.2,
+     "K": "80473556099148672_1",
+     "L": "Gas lighter_zz"
+    },
+    "24": {
+     "A": "6 - open side fridge box-AA",
+     "D": 43831.0,
+     "E": 50.0,
+     "F": 4.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 9.0,
+     "J": 63.0,
+     "K": "83772478984956801_1",
+     "L": "6 _ open side fridge box_AA"
+    },
+    "25": {
+     "A": "500ml oil spray-jj",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 7.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 119.1,
+     "K": "87537012479030080_1",
+     "L": "500ml oil spray_jj"
+    },
+    "26": {
+     "A": "2000ml Transparent motivational water bottle-0Hq",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "85579516799346370_1",
+     "L": "2000ml Transparent motivational water bottle_0Hq"
+    },
+    "27": {
+     "A": "2000ml Transparent motivational water bottle-0Xr",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "84160847069981568_1",
+     "L": "2000ml Transparent motivational water bottle_0Xr"
+    },
+    "28": {
+     "A": " Gas lighter-DDD",
+     "D": 43831.0,
+     "E": 90.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 16.2,
+     "J": 111.2,
+     "K": "80307526717059392_1",
+     "L": " Gas lighter_DDD"
+    },
+    "29": {
+     "A": "24 - black curved shape dabbaa-hh",
+     "D": 43831.0,
+     "E": 240.0,
+     "F": 9.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 43.199999999999996,
+     "J": 292.2,
+     "K": "83820925444679360_1",
+     "L": "24 _ black curved shape dabbaa_hh"
+    },
+    "30": {
+     "A": "Gas lighter-0b",
+     "D": 43831.0,
+     "E": 90.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 16.2,
+     "J": 111.2,
+     "K": "80213505363404480_1",
+     "L": "Gas lighter_0b"
+    },
+    "31": {
+     "A": "5-round flower pots multicolour-zz",
+     "D": 43831.0,
+     "E": 110.0,
+     "F": 7.25,
+     "G": 0.18,
+     "H": "N",
+     "I": 19.8,
+     "J": 137.05,
+     "K": "83638603965497536_1",
+     "L": "5_round flower pots multicolour_zz"
+    },
+    "32": {
+     "A": "GREY- FAN DUSTER-0R",
+     "D": 43831.0,
+     "E": 65.0,
+     "F": 8.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 11.7,
+     "J": 84.7,
+     "K": "84515397954430656_1",
+     "L": "GREY_ FAN DUSTER_0R"
+    },
+    "33": {
+     "A": "1 Blue Bus Shaped water bottle-L",
+     "D": 43831.0,
+     "E": 210.0,
+     "F": 4.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 37.8,
+     "J": 251.8,
+     "K": "80184866159448704_1",
+     "L": "1 Blue Bus Shaped water bottle_L"
+    },
+    "34": {
+     "A": "6-1800 ml transparent fridge box-A",
+     "D": 43831.0,
+     "E": 162.0,
+     "F": 6.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 29.16,
+     "J": 197.16,
+     "K": "84933023732265795_1",
+     "L": "6_1800 ml transparent fridge box_A"
+    },
+    "35": {
+     "A": "2000ml Transparent motivational water bottle-0Xu",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "80033044996280960_1",
+     "L": "2000ml Transparent motivational water bottle_0Xu"
+    },
+    "36": {
+     "A": "Smart furniture pad-E",
+     "D": 43831.0,
+     "E": 48.0,
+     "F": 3.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 8.64,
+     "J": 59.64,
+     "K": "84229708170646144_1",
+     "L": "Smart furniture pad_E"
+    },
+    "37": {
+     "A": "gray fan",
+     "D": 43831.0,
+     "E": 65.0,
+     "F": 8.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 11.7,
+     "J": 84.7,
+     "K": "84890994052425410_1",
+     "L": "gray fan"
+    },
+    "38": {
+     "A": " 2 in 1 bathroom cleaner0Af",
+     "D": 43831.0,
+     "E": 72.0,
+     "F": 9.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 12.959999999999999,
+     "J": 93.96,
+     "K": "79904466753278528_1",
+     "L": " 2 in 1 bathroom cleaner0Af"
+    },
+    "39": {
+     "A": "2 in 1 bathroom cleaner0Ac",
+     "D": 43831.0,
+     "E": 72.0,
+     "F": 9.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 12.959999999999999,
+     "J": 93.96,
+     "K": "84712249297662784_1",
+     "L": "2 in 1 bathroom cleaner0Ac"
+    },
+    "40": {
+     "A": "2000ml Transparent motivational water bottle-0Iq",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "85524621320775360_1",
+     "L": "2000ml Transparent motivational water bottle_0Iq"
+    },
+    "41": {
+     "A": "Shoes cleaner brush-F",
+     "D": 43831.0,
+     "E": 20.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 3.5999999999999996,
+     "J": 28.6,
+     "K": "83949216142976704_1",
+     "L": "Shoes cleaner brush_F"
+    },
+    "42": {
+     "A": " 2000ml Transparent motivational water bottle-0Ip ",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "79817097911382400_1",
+     "L": " 2000ml Transparent motivational water bottle_0Ip "
+    },
+    "43": {
+     "A": "6 Pc - Frosty Square Plain Bottle0D",
+     "D": 43831.0,
+     "E": 110.0,
+     "F": 5.5,
+     "G": 0.18,
+     "H": "N",
+     "I": 19.8,
+     "J": 135.3,
+     "K": "83846455488139904_1",
+     "L": "6 Pc _ Frosty Square Plain Bottle0D"
+    },
+    "44": {
+     "A": "Gas lighter-0e",
+     "D": 43831.0,
+     "E": 90.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 16.2,
+     "J": 111.2,
+     "K": "85942574482712256_1",
+     "L": "Gas lighter_0e"
+    },
+    "45": {
+     "A": "2000ml Transparent motivational water bottle-0Im ",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "79573722788442496_1",
+     "L": "2000ml Transparent motivational water bottle_0Im "
+    },
+    "46": {
+     "A": "Shoes cleaner Brush-y",
+     "D": 43831.0,
+     "E": 20.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 3.5999999999999996,
+     "J": 28.6,
+     "K": "86128244269240960_1",
+     "L": "Shoes cleaner Brush_y"
+    },
+    "47": {
+     "A": "2000ml Transparent motivational water bottle-0Xy",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "85583493396681345_1",
+     "L": "2000ml Transparent motivational water bottle_0Xy"
+    },
+    "48": {
+     "A": "GREY- FAN DUSTER-0H",
+     "D": 43831.0,
+     "E": 65.0,
+     "F": 8.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 11.7,
+     "J": 84.7,
+     "K": "79178517750360960_1",
+     "L": "GREY_ FAN DUSTER_0H"
+    },
+    "49": {
+     "A": "2 in 1 bathroom cleaner0Ce",
+     "D": 43831.0,
+     "E": 72.0,
+     "F": 9.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 12.959999999999999,
+     "J": 93.96,
+     "K": "83856245473116352_1",
+     "L": "2 in 1 bathroom cleaner0Ce"
+    },
+    "50": {
+     "A": "500ml oil spray-0E",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 7.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 119.1,
+     "K": "84226114221962048_1",
+     "L": "500ml oil spray_0E"
+    },
+    "51": {
+     "A": "Gas lighter-0a",
+     "D": 43831.0,
+     "E": 90.0,
+     "F": 5.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 16.2,
+     "J": 111.2,
+     "K": "86399289376342208_1",
+     "L": "Gas lighter_0a"
+    },
+    "52": {
+     "A": "GREY- FAN DUSTER-0B",
+     "D": 43831.0,
+     "E": 65.0,
+     "F": 8.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 11.7,
+     "J": 84.7,
+     "K": "86745139732738880_1",
+     "L": "GREY_ FAN DUSTER_0B"
+    },
+    "53": {
+     "A": "2000ml Transparent motivational water bottle-0Ie ",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "78797664099636544_1",
+     "L": "2000ml Transparent motivational water bottle_0Ie "
+    },
+    "54": {
+     "A": "500ml oil spray-0A",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 7.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 119.1,
+     "K": "90485189809832896_1",
+     "L": "500ml oil spray_0A"
+    },
+    "55": {
+     "A": " 2 in 1 bathroom cleaner0Ae",
+     "D": 43831.0,
+     "E": 72.0,
+     "F": 9.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 12.959999999999999,
+     "J": 93.96,
+     "K": "78336451028382528_1",
+     "L": " 2 in 1 bathroom cleaner0Ae"
+    },
+    "56": {
+     "A": "2000ml Transparent motivational water bottle-0Hx",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "78135966372188864_1",
+     "L": "2000ml Transparent motivational water bottle_0Hx"
+    },
+    "57": {
+     "A": "500ml oil spray-0G",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 7.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 119.1,
+     "K": "78103540928786816_1",
+     "L": "500ml oil spray_0G"
+    },
+    "58": {
+     "A": "2000ml Transparent motivational water bottle-0Je",
+     "D": 43831.0,
+     "E": 95.0,
+     "F": 13.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 17.099999999999998,
+     "J": 125.1,
+     "K": "84227914673558849_1",
+     "L": "2000ml Transparent motivational water bottle_0Je"
+    },
+    "59": {
+     "A": "24 greyline container-B",
+     "D": 43831.0,
+     "E": 260.0,
+     "F": 9.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 46.8,
+     "J": 315.8,
+     "K": "88422154455624576_1",
+     "L": "24 greyline container_B"
+    },
+    "60": {
+     "A": " 2 in 1 bathroom cleaner0Cg",
+     "D": 43831.0,
+     "E": 72.0,
+     "F": 9.0,
+     "G": 0.18,
+     "H": "N",
+     "I": 12.959999999999999,
+     "J": 93.96,
+     "K": "77486708888692416_1",
+     "L": " 2 in 1 bathroom cleaner0Cg"
+    }
+   },
+   "colstats": {
+    "A": {
+     "nval": 229,
+     "nfml": 0,
+     "types": {
+      "str": 229
+     },
+     "formulas": {}
+    },
+    "B": {
+     "nval": 3,
+     "nfml": 0,
+     "types": {
+      "str": 3
+     },
+     "formulas": {}
+    },
+    "C": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "D": {
+     "nval": 229,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 228
+     },
+     "formulas": {}
+    },
+    "E": {
+     "nval": 229,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 228
+     },
+     "formulas": {}
+    },
+    "F": {
+     "nval": 229,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 228
+     },
+     "formulas": {}
+    },
+    "G": {
+     "nval": 229,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 228
+     },
+     "formulas": {}
+    },
+    "H": {
+     "nval": 227,
+     "nfml": 0,
+     "types": {
+      "str": 227
+     },
+     "formulas": {}
+    },
+    "I": {
+     "nval": 229,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 228
+     },
+     "formulas": {}
+    },
+    "J": {
+     "nval": 229,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 228
+     },
+     "formulas": {}
+    },
+    "K": {
+     "nval": 229,
+     "nfml": 0,
+     "types": {
+      "str": 227,
+      "num": 2
+     },
+     "formulas": {}
+    },
+    "L": {
+     "nval": 229,
+     "nfml": 0,
+     "types": {
+      "str": 229
+     },
+     "formulas": {}
+    },
+    "M": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "N": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    }
+   },
+   "unknown_ids": {}
+  },
+  "Temp": {
+   "sheet": "Temp",
+   "file": "sheet4",
+   "dims": "A1:DL4",
+   "rows_with_data": 4,
+   "last_row": 4,
+   "max_col": "DL",
+   "hidden_cols": [],
+   "autofilter": null,
+   "protection": "000000000000010000000100",
+   "merges_n": 0,
+   "merges_sample": [],
+   "headers": {
+    "A1": "Order Date",
+    "B1": "Order Date",
+    "C1": "TotalPayment",
+    "D1": "TotalPayment",
+    "E1": "-500",
+    "F1": "-150",
+    "G1": "Yes",
+    "A2": ">=45637",
+    "B2": "<=45864",
+    "C2": ">=-500",
+    "D2": "<=-150",
+    "A3": 45185.0,
+    "B3": 45347.0,
+    "A4": "cSKid",
+    "B4": "P.Count",
+    "C4": "TotalPayment",
+    "D4": "Total Sales2",
+    "E4": "Final Return Charges",
+    "F4": "Overcharged",
+    "G4": "Courier Company",
+    "H4": "Emty",
+    "I4": "H4",
+    "J4": "H5",
+    "K4": "H6",
+    "L4": "Meesho GST Credits",
+    "M4": "Purchase Gst Credit",
+    "N4": "Sales Gst Debit",
+    "O4": "Available GST Credit",
+    "P4": "Total Order",
+    "Q4": "Lost Qty",
+    "R4": "Recovery Qty",
+    "S4": "Cancelled",
+    "T4": "Claim Qty",
+    "U4": "Exchange",
+    "V4": "Delivered",
+    "W4": "Customer Return",
+    "X4": "RTO",
+    "Y4": "D+R+C",
+    "Z4": "Live Order Status 2",
+    "AA4": "Recovery Type",
+    "AB4": "Compansation Type",
+    "AC4": "State",
+    "AD4": "Claim Status",
+    "AE4": "Purchase",
+    "AF4": "Shipping Diff",
+    "AG4": "Profit Loss With Gst",
+    "AH4": "P/L",
+    "AI4": "H2",
+    "AJ4": "H3",
+    "AK4": "Total Purchase Cost",
+    "AL4": "Weight Slab",
+    "AM4": "Product Na",
+    "AN4": "Purchase GST %",
+    "AO4": "Return Loss %",
+    "AP4": "RTO Packaging Loss",
+    "AQ4": "SubstituteSKU",
+    "AR4": "Ok",
+    "AS4": "Total Sales",
+    "AT4": "OD",
+    "AU4": "PD",
+    "AV4": "OM",
+    "AW4": "PM",
+    "AX4": "OY",
+    "AY4": "PY",
+    "AZ4": "Id + Sku",
+    "BA4": "Sub Order No",
+    "BB4": "Order Date",
+    "BC4": "Dispatch Date",
+    "BD4": "Product Name",
+    "BE4": "Supplier SKU",
+    "BF4": "Live Order Status",
+    "BG4": "Product GST %",
+    "BH4": "Listing Price (Incl. GST & Commission)",
+    "BI4": "Quantity",
+    "BJ4": "Transaction ID",
+    "BK4": "Payment Date",
+    "BL4": "Final Settlement Amount",
+    "BM4": "Price Type",
+    "BN4": "Total Sale Amount (Incl. Commission & GST)",
+    "BO4": "Sale Return Amount (Incl. GST)",
+    "BP4": "Fixed Fee (Incl. GST)",
+    "BQ4": "Warehousing fee (inc Gst)",
+    "BR4": "Shipping Revenue (Incl. GST)",
+    "BS4": "Shipping Return Amount (Incl. GST)",
+    "BT4": "Return premium (incl GST)",
+    "BU4": "Return premium (incl GST) of Return",
+    "BV4": "Meesho Commission Percentage",
+    "BW4": "Meesho Commission (Excl. GST)",
+    "BX4": "Meesho gold platform fee (excl GST)",
+    "BY4": "Meesho mall platform fee (excl. GST)",
+    "BZ4": "Fixed Fee (excl. GST)",
+    "CA4": "Warehousing fee (excl Gst)",
+    "CB4": "Return Shipping Charge (Excl. GST)",
+    "CC4": "GST Compensation (PRP Shipping)",
+    "CD4": "Shipping Charge (Excl. GST)",
+    "CE4": "Other Support Service Charges (Excl. GST)",
+    "CF4": "Waivers (Excl. GST)",
+    "CG4": "Net Other Support Service Charges (Excl. GST)",
+    "CH4": "GST on Meesho Commission",
+    "CI4": "GST on Warehousing fee",
+    "CJ4": "GST on meesho gold",
+    "CK4": "GST on Meesho Mall platform fee",
+    "CL4": "GST on Shipping Charge', 'CGST + SGST on Shipping Charge",
+    "CM4": "GST on Return Shipping Charge",
+    "CN4": "GST on Net Other Support Service Charges",
+    "CO4": "GST on Fixed Fee",
+    "CP4": "TCS",
+    "CQ4": "TDS Rate %",
+    "CR4": "TDS",
+    "CS4": "Compensation",
+    "CT4": "Claims",
+    "CU4": "Recovery",
+    "CV4": "Compensation Reason",
+    "CW4": "Claims Reason",
+    "CX4": "Recovery Reason",
+    "CY4": "RS.Charge2",
+    "CZ4": "S.Charge2",
+    "DA4": "HNA4",
+    "DB4": "HNA4",
+    "DC4": "HNA4",
+    "DD4": "HNA4",
+    "DE4": "GST",
+    "DF4": 0.0,
+    "DG4": "Total Ads Cost",
+    "DH4": "Net Referral Amount",
+    "DI4": "Reason",
+    "DJ4": "FileName",
+    "DK4": "HNA5",
+    "DL4": "HNA6"
+   },
+   "dump": {
+    "1": {
+     "A": "Order Date",
+     "B": "Order Date",
+     "C": "TotalPayment",
+     "D": "TotalPayment",
+     "E": "-500",
+     "F": "-150",
+     "G": "Yes"
+    },
+    "2": {
+     "A": ">=45637",
+     "B": "<=45864",
+     "C": ">=-500",
+     "D": "<=-150"
+    },
+    "3": {
+     "A": 45185.0,
+     "B": 45347.0
+    },
+    "4": {
+     "A": "cSKid",
+     "B": "P.Count",
+     "C": "TotalPayment",
+     "D": "Total Sales2",
+     "E": "Final Return Charges",
+     "F": "Overcharged",
+     "G": "Courier Company",
+     "H": "Emty",
+     "I": "H4",
+     "J": "H5",
+     "K": "H6",
+     "L": "Meesho GST Credits",
+     "M": "Purchase Gst Credit",
+     "N": "Sales Gst Debit",
+     "O": "Available GST Credit",
+     "P": "Total Order",
+     "Q": "Lost Qty",
+     "R": "Recovery Qty",
+     "S": "Cancelled",
+     "T": "Claim Qty",
+     "U": "Exchange",
+     "V": "Delivered",
+     "W": "Customer Return",
+     "X": "RTO",
+     "Y": "D+R+C",
+     "Z": "Live Order Status 2",
+     "AA": "Recovery Type",
+     "AB": "Compansation Type",
+     "AC": "State",
+     "AD": "Claim Status",
+     "AE": "Purchase",
+     "AF": "Shipping Diff",
+     "AG": "Profit Loss With Gst",
+     "AH": "P/L",
+     "AI": "H2",
+     "AJ": "H3",
+     "AK": "Total Purchase Cost",
+     "AL": "Weight Slab",
+     "AM": "Product Na",
+     "AN": "Purchase GST %",
+     "AO": "Return Loss %",
+     "AP": "RTO Packaging Loss",
+     "AQ": "SubstituteSKU",
+     "AR": "Ok",
+     "AS": "Total Sales",
+     "AT": "OD",
+     "AU": "PD",
+     "AV": "OM",
+     "AW": "PM",
+     "AX": "OY",
+     "AY": "PY",
+     "AZ": "Id + Sku",
+     "BA": "Sub Order No",
+     "BB": "Order Date",
+     "BC": "Dispatch Date",
+     "BD": "Product Name",
+     "BE": "Supplier SKU",
+     "BF": "Live Order Status",
+     "BG": "Product GST %",
+     "BH": "Listing Price (Incl. GST & Commission)",
+     "BI": "Quantity",
+     "BJ": "Transaction ID",
+     "BK": "Payment Date",
+     "BL": "Final Settlement Amount",
+     "BM": "Price Type",
+     "BN": "Total Sale Amount (Incl. Commission & GST)",
+     "BO": "Sale Return Amount (Incl. GST)",
+     "BP": "Fixed Fee (Incl. GST)",
+     "BQ": "Warehousing fee (inc Gst)",
+     "BR": "Shipping Revenue (Incl. GST)",
+     "BS": "Shipping Return Amount (Incl. GST)",
+     "BT": "Return premium (incl GST)",
+     "BU": "Return premium (incl GST) of Return",
+     "BV": "Meesho Commission Percentage",
+     "BW": "Meesho Commission (Excl. GST)",
+     "BX": "Meesho gold platform fee (excl GST)",
+     "BY": "Meesho mall platform fee (excl. GST)",
+     "BZ": "Fixed Fee (excl. GST)",
+     "CA": "Warehousing fee (excl Gst)",
+     "CB": "Return Shipping Charge (Excl. GST)",
+     "CC": "GST Compensation (PRP Shipping)",
+     "CD": "Shipping Charge (Excl. GST)",
+     "CE": "Other Support Service Charges (Excl. GST)",
+     "CF": "Waivers (Excl. GST)",
+     "CG": "Net Other Support Service Charges (Excl. GST)",
+     "CH": "GST on Meesho Commission",
+     "CI": "GST on Warehousing fee",
+     "CJ": "GST on meesho gold",
+     "CK": "GST on Meesho Mall platform fee",
+     "CL": "GST on Shipping Charge', 'CGST + SGST on Shipping Charge",
+     "CM": "GST on Return Shipping Charge",
+     "CN": "GST on Net Other Support Service Charges",
+     "CO": "GST on Fixed Fee",
+     "CP": "TCS",
+     "CQ": "TDS Rate %",
+     "CR": "TDS",
+     "CS": "Compensation",
+     "CT": "Claims",
+     "CU": "Recovery",
+     "CV": "Compensation Reason",
+     "CW": "Claims Reason",
+     "CX": "Recovery Reason",
+     "CY": "RS.Charge2",
+     "CZ": "S.Charge2",
+     "DA": "HNA4",
+     "DB": "HNA4",
+     "DC": "HNA4",
+     "DD": "HNA4",
+     "DE": "GST",
+     "DF": 0.0,
+     "DG": "Total Ads Cost",
+     "DH": "Net Referral Amount",
+     "DI": "Reason",
+     "DJ": "FileName",
+     "DK": "HNA5",
+     "DL": "HNA6"
+    }
+   },
+   "colstats": {
+    "A": {
+     "nval": 3,
+     "nfml": 1,
+     "types": {
+      "str": 2,
+      "num": 1
+     },
+     "formulas": {
+      "?PTG5A?": [
+       1,
+       "A2",
+       "?PTG5A?"
+      ]
+     }
+    },
+    "B": {
+     "nval": 3,
+     "nfml": 1,
+     "types": {
+      "str": 2,
+      "num": 1
+     },
+     "formulas": {
+      "?PTG5A?": [
+       1,
+       "B2",
+       "?PTG5A?"
+      ]
+     }
+    },
+    "C": {
+     "nval": 2,
+     "nfml": 1,
+     "types": {
+      "str": 2
+     },
+     "formulas": {
+      "?PTG4ROW?": [
+       1,
+       "C2",
+       "?PTG44?"
+      ]
+     }
+    },
+    "D": {
+     "nval": 2,
+     "nfml": 1,
+     "types": {
+      "str": 2
+     },
+     "formulas": {
+      "?PTG4ROW?": [
+       1,
+       "D2",
+       "?PTG44?"
+      ]
+     }
+    },
+    "E": {
+     "nval": 1,
+     "nfml": 1,
+     "types": {
+      "str": 1
+     },
+     "formulas": {
+      "?PTG5A?": [
+       1,
+       "E1",
+       "?PTG5A?"
+      ]
+     }
+    },
+    "F": {
+     "nval": 1,
+     "nfml": 1,
+     "types": {
+      "str": 1
+     },
+     "formulas": {
+      "?PTG5A?": [
+       1,
+       "F1",
+       "?PTG5A?"
+      ]
+     }
+    },
+    "G": {
+     "nval": 1,
+     "nfml": 1,
+     "types": {
+      "str": 1
+     },
+     "formulas": {
+      "?PTG4ROW?": [
+       1,
+       "G1",
+       "?PTG44?"
+      ]
+     }
+    },
+    "H": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "I": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "J": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "K": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "L": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "M": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "N": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "O": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "P": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "Q": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "R": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "S": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "T": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "U": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "V": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "W": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "X": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "Y": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "Z": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AA": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AB": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AC": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AD": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AE": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AF": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AG": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AH": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AI": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AJ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AK": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AL": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AM": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AN": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AO": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AP": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AQ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AR": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AS": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AT": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AU": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AV": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AW": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AX": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AY": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AZ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BA": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BB": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BC": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BD": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BE": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BF": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BG": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BH": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BI": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BJ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BK": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BL": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BM": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BN": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BO": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BP": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BQ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BR": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BS": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BT": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BU": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BV": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BW": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BX": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BY": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "BZ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CA": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CB": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CC": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CD": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CE": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CF": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CG": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CH": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CI": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CJ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CK": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CL": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CM": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CN": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CO": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CP": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CQ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CR": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CS": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CT": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CU": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CV": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CW": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CX": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CY": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "CZ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DA": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DB": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DC": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DD": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DE": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DF": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "num": 1
+     },
+     "formulas": {}
+    },
+    "DG": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DH": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DI": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DJ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DK": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DL": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    }
+   },
+   "unknown_ids": {}
+  },
+  "Update Data": {
+   "sheet": "Update Data",
+   "file": "sheet7",
+   "dims": "A1:A1",
+   "rows_with_data": 0,
+   "last_row": 0,
+   "max_col": null,
+   "hidden_cols": [],
+   "autofilter": null,
+   "protection": "000000000000010000000100",
+   "merges_n": 0,
+   "merges_sample": [],
+   "headers": {},
+   "dump": {},
+   "colstats": {},
+   "unknown_ids": {}
+  },
+  "Sales": {
+   "sheet": "Sales",
+   "file": "sheet6",
+   "dims": "A1:P63511",
+   "rows_with_data": 63511,
+   "last_row": 63511,
+   "max_col": "P",
+   "hidden_cols": [],
+   "autofilter": "A2:Q2",
+   "protection": "000000000000010000000100",
+   "merges_n": 0,
+   "merges_sample": [],
+   "headers": {
+    "F1": 0.0,
+    "I1": 63510.0,
+    "A2": "CostPrice",
+    "B2": "Orderes",
+    "C2": "Payment Status",
+    "D2": "Reason for Credit Entry",
+    "E2": "Sub Order No",
+    "F2": "Order Date",
+    "G2": "SKU",
+    "H2": "Size",
+    "I2": "Quantity",
+    "J2": "Customer State",
+    "K2": "Product Name",
+    "L2": "Supplier Listed Price (Incl. GST + Commission)",
+    "M2": "Supplier Discounted Price (Incl GST and Commision)",
+    "N2": "Packet Id",
+    "O2": "FileName",
+    "P2": 0.0,
+    "A3": 0.0,
+    "B3": 1.0,
+    "C3": 343.0,
+    "D3": "DELIVERED",
+    "E3": "124216011481312000_1",
+    "F3": 45709.0,
+    "G3": "New[Grey",
+    "H3": "Free Size",
+    "I3": 1.0,
+    "J3": "Karnataka",
+    "K3": "Name : Trending TWS Bluetooth Wireless Bluetooth Headphones Earbuds With Best Quality Wireless Bluetooth Headphones & Earphones Touch Sensor V5.1 With HD Mic And Active Noisz Cancellation Supported All Android & IOS Devices Bluetooth Headset (BT, Grey Cover True Wireless)",
+    "L3": 251.0,
+    "M3": 251.0,
+    "N3": "TP1WAEU01214315",
+    "O3": "Orders_2025-02-21_2025-02-28_2025-03-31_14_54-14_59_1260895.csv",
+    "P3": 0.0,
+    "A4": 0.0,
+    "B4": 1.0,
+    "C4": 362.0,
+    "D4": "DELIVERED",
+    "E4": "124224186126243648_1",
+    "F4": 45709.0,
+    "G4": "..,,1.',",
+    "H4": "Free Size",
+    "I4": 1.0,
+    "J4": "Telangana",
+    "K4": "Fancy product ,very nice high quality sound ",
+    "L4": 271.0,
+    "M4": 271.0,
+    "N4": "TP1WAEU01214118",
+    "O4": "Orders_2025-02-21_2025-02-28_2025-03-31_14_54-14_59_1260895.csv",
+    "P4": 0.0
+   },
+   "dump": {
+    "1": {
+     "F": 0.0,
+     "H": null,
+     "I": 63510.0
+    },
+    "2": {
+     "A": "CostPrice",
+     "B": "Orderes",
+     "C": "Payment Status",
+     "D": "Reason for Credit Entry",
+     "E": "Sub Order No",
+     "F": "Order Date",
+     "G": "SKU",
+     "H": "Size",
+     "I": "Quantity",
+     "J": "Customer State",
+     "K": "Product Name",
+     "L": "Supplier Listed Price (Incl. GST + Commission)",
+     "M": "Supplier Discounted Price (Incl GST and Commision)",
+     "N": "Packet Id",
+     "O": "FileName",
+     "P": 0.0
+    },
+    "3": {
+     "A": 0.0,
+     "B": 1.0,
+     "C": 343.0,
+     "D": "DELIVERED",
+     "E": "124216011481312000_1",
+     "F": 45709.0,
+     "G": "New[Grey",
+     "H": "Free Size",
+     "I": 1.0,
+     "J": "Karnataka",
+     "K": "Name : Trending TWS Bluetooth Wireless Bluetooth Headphones Earbuds With Best Quality Wireless Bluetooth Headphones & Earphones Touch Sensor V5.1 With HD Mic And Active Noisz Cancellation Supported All Android & IOS Devices Bluetooth Headset (BT, Grey Cover True Wireless)",
+     "L": 251.0,
+     "M": 251.0,
+     "N": "TP1WAEU01214315",
+     "O": "Orders_2025-02-21_2025-02-28_2025-03-31_14_54-14_59_1260895.csv",
+     "P": 0.0
+    },
+    "4": {
+     "A": 0.0,
+     "B": 1.0,
+     "C": 362.0,
+     "D": "DELIVERED",
+     "E": "124224186126243648_1",
+     "F": 45709.0,
+     "G": "..,,1.',",
+     "H": "Free Size",
+     "I": 1.0,
+     "J": "Telangana",
+     "K": "Fancy product ,very nice high quality sound ",
+     "L": 271.0,
+     "M": 271.0,
+     "N": "TP1WAEU01214118",
+     "O": "Orders_2025-02-21_2025-02-28_2025-03-31_14_54-14_59_1260895.csv",
+     "P": 0.0
+    }
+   },
+   "colstats": {
+    "A": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 63509
+     },
+     "formulas": {}
+    },
+    "B": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 63509
+     },
+     "formulas": {}
+    },
+    "C": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 23885,
+      "num": 39625
+     },
+     "formulas": {}
+    },
+    "D": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 63510
+     },
+     "formulas": {}
+    },
+    "E": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 63510
+     },
+     "formulas": {}
+    },
+    "F": {
+     "nval": 63510,
+     "nfml": 1,
+     "types": {
+      "str": 1,
+      "num": 63509
+     },
+     "formulas": {
+      "?PTG4ROW?": [
+       1,
+       "F1",
+       "?PTG42?"
+      ]
+     }
+    },
+    "G": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 63254,
+      "num": 246,
+      "err": 10
+     },
+     "formulas": {}
+    },
+    "H": {
+     "nval": 63511,
+     "nfml": 0,
+     "types": {
+      "blank": 1,
+      "str": 63510
+     },
+     "formulas": {}
+    },
+    "I": {
+     "nval": 63510,
+     "nfml": 1,
+     "types": {
+      "str": 1,
+      "num": 63509
+     },
+     "formulas": {
+      "?PTG4ROW?": [
+       1,
+       "I1",
+       "?PTG42?"
+      ]
+     }
+    },
+    "J": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 63510
+     },
+     "formulas": {}
+    },
+    "K": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 63510
+     },
+     "formulas": {}
+    },
+    "L": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 63509
+     },
+     "formulas": {}
+    },
+    "M": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 63509
+     },
+     "formulas": {}
+    },
+    "N": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 51570,
+      "num": 11940
+     },
+     "formulas": {}
+    },
+    "O": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "str": 63510
+     },
+     "formulas": {}
+    },
+    "P": {
+     "nval": 63510,
+     "nfml": 0,
+     "types": {
+      "num": 63510
+     },
+     "formulas": {}
+    }
+   },
+   "unknown_ids": {
+    "162": 1
+   }
+  },
+  "Payment": {
+   "sheet": "Payment",
+   "file": "sheet5",
+   "dims": "A2:DL43492",
+   "rows_with_data": 43491,
+   "last_row": 43492,
+   "max_col": "DL",
+   "hidden_cols": [],
+   "autofilter": null,
+   "protection": "000000000000010000000100",
+   "merges_n": 0,
+   "merges_sample": [],
+   "headers": {
+    "A2": "cSKid",
+    "B2": "P.Count",
+    "C2": "TotalPayment",
+    "D2": "Total Sales2",
+    "E2": "Final Return Charges",
+    "F2": "Overcharged",
+    "G2": "Courier Company",
+    "H2": "Emty",
+    "I2": "H4",
+    "J2": "H5",
+    "K2": "H6",
+    "L2": "Meesho GST Credits",
+    "M2": "Purchase Gst Credit",
+    "N2": "Sales Gst Debit",
+    "O2": "Available GST Credit",
+    "P2": "Total Order",
+    "Q2": "Lost Qty",
+    "R2": "Recovery Qty",
+    "S2": "Cancelled",
+    "T2": "Claim Qty",
+    "U2": "Exchange",
+    "V2": "Delivered",
+    "W2": "Customer Return",
+    "X2": "RTO",
+    "Y2": "D+R+C",
+    "Z2": "Live Order Status 2",
+    "AA2": "Recovery Type",
+    "AB2": "Compansation Type",
+    "AC2": "State",
+    "AD2": "Claim Status",
+    "AE2": "Purchase",
+    "AF2": "Shipping Diff",
+    "AG2": "Profit Loss With Gst",
+    "AH2": "P/L",
+    "AI2": "H2",
+    "AJ2": "H3",
+    "AK2": "Total Purchase Cost",
+    "AL2": "Weight Slab",
+    "AM2": "Product Na",
+    "AN2": "Purchase GST %",
+    "AO2": "Return Loss %",
+    "AP2": "RTO Packaging Loss",
+    "AQ2": "SubstituteSKU",
+    "AR2": "Ok",
+    "AS2": "Total Sales",
+    "AT2": "OD",
+    "AU2": "PD",
+    "AV2": "OM",
+    "AW2": "PM",
+    "AX2": "OY",
+    "AY2": "PY",
+    "AZ2": "Id + Sku",
+    "BA2": "Sub Order No",
+    "BB2": "Order Date",
+    "BC2": "Dispatch Date",
+    "BD2": "Product Name",
+    "BE2": "Supplier SKU",
+    "BF2": "Live Order Status",
+    "BG2": "Product GST %",
+    "BH2": "Listing Price (Incl. GST & Commission)",
+    "BI2": "Quantity",
+    "BJ2": "Transaction ID",
+    "BK2": "Payment Date",
+    "BL2": "Final Settlement Amount",
+    "BM2": "Price Type",
+    "BN2": "Total Sale Amount (Incl. Commission & GST)",
+    "BO2": "Sale Return Amount (Incl. GST)",
+    "BP2": "Fixed Fee (Incl. GST)",
+    "BQ2": "Warehousing fee (inc Gst)",
+    "BR2": "Shipping Revenue (Incl. GST)",
+    "BS2": "Shipping Return Amount (Incl. GST)",
+    "BT2": "Return premium (incl GST)",
+    "BU2": "Return premium (incl GST) of Return",
+    "BV2": "Meesho Commission Percentage",
+    "BW2": "Meesho Commission (Excl. GST)",
+    "BX2": "Meesho gold platform fee (excl GST)",
+    "BY2": "Meesho mall platform fee (excl. GST)",
+    "BZ2": "Fixed Fee (excl. GST)",
+    "CA2": "Warehousing fee (excl Gst)",
+    "CB2": "Return Shipping Charge (Excl. GST)",
+    "CC2": "GST Compensation (PRP Shipping)",
+    "CD2": "Shipping Charge (Excl. GST)",
+    "CE2": "Other Support Service Charges (Excl. GST)",
+    "CF2": "Waivers (Excl. GST)",
+    "CG2": "Net Other Support Service Charges (Excl. GST)",
+    "CH2": "GST on Meesho Commission",
+    "CI2": "GST on Warehousing fee",
+    "CJ2": "GST on meesho gold",
+    "CK2": "GST on Meesho Mall platform fee",
+    "CL2": "GST on Shipping Charge', 'CGST + SGST on Shipping Charge",
+    "CM2": "GST on Return Shipping Charge",
+    "CN2": "GST on Net Other Support Service Charges",
+    "CO2": "GST on Fixed Fee",
+    "CP2": "TCS",
+    "CQ2": "TDS Rate %",
+    "CR2": "TDS",
+    "CS2": "Compensation",
+    "CT2": "Claims",
+    "CU2": "Recovery",
+    "CV2": "Compensation Reason",
+    "CW2": "Claims Reason",
+    "CX2": "Recovery Reason",
+    "CY2": "RS.Charge2",
+    "CZ2": "S.Charge2",
+    "DA2": "HNA4",
+    "DB2": "HNA4",
+    "DC2": "HNA4",
+    "DD2": "HNA4",
+    "DE2": "GST",
+    "DF2": 0.0,
+    "DG2": "Total Ads Cost",
+    "DH2": "Net Referral Amount",
+    "DI2": "Reason",
+    "DJ2": "FileName",
+    "DK2": "HNA5",
+    "DL2": "HNA6",
+    "A3": 1.0,
+    "B3": 0.0,
+    "C3": 0.0,
+    "D3": 0.0,
+    "E3": 0.0,
+    "F3": "NA",
+    "G3": "Shadowfax",
+    "H3": 0.0,
+    "L3": 0.0,
+    "M3": 0.0,
+    "N3": 0.0,
+    "O3": 0.0,
+    "P3": 1.0,
+    "Q3": 0.0,
+    "R3": 0.0,
+    "S3": 0.0,
+    "T3": 0.0,
+    "U3": 0.0,
+    "V3": 0.0,
+    "W3": 0.0,
+    "X3": 1.0,
+    "Y3": 0.0,
+    "Z3": "RTO",
+    "AA3": "MEESHO_SMART_COIN_FEE",
+    "AB3": "NA",
+    "AC3": "Maharashtra",
+    "AD3": "NA",
+    "AE3": 0.0,
+    "AF3": 0.0,
+    "AG3": 0.0,
+    "AH3": 0.0,
+    "AK3": 146.0,
+    "AL3": "Upto 500gm",
+    "AM3": 0.0,
+    "AN3": 0.0,
+    "AO3": 0.0,
+    "AP3": 0.0,
+    "AQ3": "..,5",
+    "AR3": "Paid",
+    "AS3": 0.0,
+    "AT3": "27",
+    "AU3": "03",
+    "AV3": "Feb",
+    "AW3": "Mar",
+    "AX3": "2025",
+    "AY3": "2025",
+    "AZ3": "126596332856173056_1 | ..,5",
+    "BA3": "126596332856173056_1",
+    "BB3": 45715.0,
+    "BC3": 45716.0,
+    "BD3": "Airpod Pro with Silicon Case True Wireless Bluetooth Earphones with 3 Hours of Playtime & Compatible for all Smartphones (Black)",
+    "BE3": "..,5",
+    "BF3": "RTO",
+    "BG3": 18.0,
+    "BH3": 216.0,
+    "BI3": 1.0,
+    "BJ3": "SCBLN52025030300719998",
+    "BK3": 45719.0,
+    "BL3": 0.0,
+    "BN3": 291.0,
+    "BO3": -291.0,
+    "BP3": 0.0,
+    "BQ3": 0.0,
+    "BR3": 0.0,
+    "BS3": 0.0,
+    "BT3": 0.0,
+    "BU3": 0.0,
+    "BV3": 0.0,
+    "BW3": 0.0,
+    "BX3": 0.0,
+    "BY3": 0.0,
+    "BZ3": 0.0,
+    "CA3": 0.0,
+    "CB3": 0.0,
+    "CC3": 0.0,
+    "CD3": 0.0,
+    "CE3": 0.0,
+    "CF3": 0.0,
+    "CG3": 0.0,
+    "CH3": 0.0,
+    "CI3": 0.0,
+    "CJ3": 0.0,
+    "CK3": 0.0,
+    "CL3": 0.0,
+    "CM3": 0.0,
+    "CN3": 0.0,
+    "CO3": 0.0,
+    "CP3": 0.0,
+    "CQ3": 0.1,
+    "CR3": 0.0,
+    "CS3": 0.0,
+    "CT3": 0.0,
+    "CU3": 0.0,
+    "CY3": 0.0,
+    "CZ3": 0.0,
+    "DA3": 0.0,
+    "DB3": 0.0,
+    "DC3": 0.0,
+    "DD3": 0.0,
+    "DE3": 0.0,
+    "DF3": 0.0,
+    "DG3": 0.0,
+    "DH3": 0.0,
+    "DI3": 0.0,
+    "DJ3": "1260895_SP_ORDER_ADS_REFERRAL_PAYMENT_FILE_PREVIOUS_PAYMENT_2025-03-01_2025-03-30.xlsx",
+    "A4": 1.0,
+    "B4": 0.0,
+    "C4": 0.0,
+    "D4": 0.0,
+    "E4": 0.0,
+    "F4": "NA",
+    "G4": "PocketShip",
+    "H4": 0.0,
+    "L4": 0.0,
+    "M4": 0.0,
+    "N4": 0.0,
+    "O4": 0.0,
+    "P4": 1.0,
+    "Q4": 0.0,
+    "R4": 0.0,
+    "S4": 0.0,
+    "T4": 0.0,
+    "U4": 0.0,
+    "V4": 0.0,
+    "W4": 0.0,
+    "X4": 1.0,
+    "Y4": 0.0,
+    "Z4": "RTO",
+    "AA4": "MEESHO_SMART_COIN_FEE",
+    "AB4": "NA",
+    "AC4": "Maharashtra",
+    "AD4": "NA",
+    "AE4": 0.0,
+    "AF4": 0.0,
+    "AG4": 0.0,
+    "AH4": 0.0,
+    "AK4": 146.0,
+    "AL4": "Upto 500gm",
+    "AM4": 0.0,
+    "AN4": 0.0,
+    "AO4": 0.0,
+    "AP4": 0.0,
+    "AQ4": "..,,1.',",
+    "AR4": "Paid",
+    "AS4": 0.0,
+    "AT4": "27",
+    "AU4": "03",
+    "AV4": "Feb",
+    "AW4": "Mar",
+    "AX4": "2025",
+    "AY4": "2025",
+    "AZ4": "126559192891695232_1 | ..,,1.',",
+    "BA4": "126559192891695232_1",
+    "BB4": 45715.0,
+    "BC4": 45716.0,
+    "BD4": "Fancy product ,very nice high quality sound ",
+    "BE4": "..,,1.',",
+    "BF4": "RTO",
+    "BG4": 18.0,
+    "BH4": 244.0,
+    "BI4": 1.0,
+    "BJ4": "SCBLN52025030300719998",
+    "BK4": 45719.0,
+    "BL4": 0.0,
+    "BN4": 290.0,
+    "BO4": -290.0,
+    "BP4": 0.0,
+    "BQ4": 0.0,
+    "BR4": 0.0,
+    "BS4": 0.0,
+    "BT4": 0.0,
+    "BU4": 0.0,
+    "BV4": 0.0,
+    "BW4": 0.0,
+    "BX4": 0.0,
+    "BY4": 0.0,
+    "BZ4": 0.0,
+    "CA4": 0.0,
+    "CB4": 0.0,
+    "CC4": 0.0,
+    "CD4": 0.0,
+    "CE4": 0.0,
+    "CF4": 0.0,
+    "CG4": 0.0,
+    "CH4": 0.0,
+    "CI4": 0.0,
+    "CJ4": 0.0,
+    "CK4": 0.0,
+    "CL4": 0.0,
+    "CM4": 0.0,
+    "CN4": 0.0,
+    "CO4": 0.0,
+    "CP4": 0.0,
+    "CQ4": 0.1,
+    "CR4": 0.0,
+    "CS4": 0.0,
+    "CT4": 0.0,
+    "CU4": 0.0,
+    "CY4": 0.0,
+    "CZ4": 0.0,
+    "DA4": 0.0,
+    "DB4": 0.0,
+    "DC4": 0.0,
+    "DD4": 0.0,
+    "DE4": 0.0,
+    "DF4": 0.0,
+    "DG4": 0.0,
+    "DH4": 0.0,
+    "DI4": 0.0,
+    "DJ4": "1260895_SP_ORDER_ADS_REFERRAL_PAYMENT_FILE_PREVIOUS_PAYMENT_2025-03-01_2025-03-30.xlsx"
+   },
+   "dump": {
+    "2": {
+     "A": "cSKid",
+     "B": "P.Count",
+     "C": "TotalPayment",
+     "D": "Total Sales2",
+     "E": "Final Return Charges",
+     "F": "Overcharged",
+     "G": "Courier Company",
+     "H": "Emty",
+     "I": "H4",
+     "J": "H5",
+     "K": "H6",
+     "L": "Meesho GST Credits",
+     "M": "Purchase Gst Credit",
+     "N": "Sales Gst Debit",
+     "O": "Available GST Credit",
+     "P": "Total Order",
+     "Q": "Lost Qty",
+     "R": "Recovery Qty",
+     "S": "Cancelled",
+     "T": "Claim Qty",
+     "U": "Exchange",
+     "V": "Delivered",
+     "W": "Customer Return",
+     "X": "RTO",
+     "Y": "D+R+C",
+     "Z": "Live Order Status 2",
+     "AA": "Recovery Type",
+     "AB": "Compansation Type",
+     "AC": "State",
+     "AD": "Claim Status",
+     "AE": "Purchase",
+     "AF": "Shipping Diff",
+     "AG": "Profit Loss With Gst",
+     "AH": "P/L",
+     "AI": "H2",
+     "AJ": "H3",
+     "AK": "Total Purchase Cost",
+     "AL": "Weight Slab",
+     "AM": "Product Na",
+     "AN": "Purchase GST %",
+     "AO": "Return Loss %",
+     "AP": "RTO Packaging Loss",
+     "AQ": "SubstituteSKU",
+     "AR": "Ok",
+     "AS": "Total Sales",
+     "AT": "OD",
+     "AU": "PD",
+     "AV": "OM",
+     "AW": "PM",
+     "AX": "OY",
+     "AY": "PY",
+     "AZ": "Id + Sku",
+     "BA": "Sub Order No",
+     "BB": "Order Date",
+     "BC": "Dispatch Date",
+     "BD": "Product Name",
+     "BE": "Supplier SKU",
+     "BF": "Live Order Status",
+     "BG": "Product GST %",
+     "BH": "Listing Price (Incl. GST & Commission)",
+     "BI": "Quantity",
+     "BJ": "Transaction ID",
+     "BK": "Payment Date",
+     "BL": "Final Settlement Amount",
+     "BM": "Price Type",
+     "BN": "Total Sale Amount (Incl. Commission & GST)",
+     "BO": "Sale Return Amount (Incl. GST)",
+     "BP": "Fixed Fee (Incl. GST)",
+     "BQ": "Warehousing fee (inc Gst)",
+     "BR": "Shipping Revenue (Incl. GST)",
+     "BS": "Shipping Return Amount (Incl. GST)",
+     "BT": "Return premium (incl GST)",
+     "BU": "Return premium (incl GST) of Return",
+     "BV": "Meesho Commission Percentage",
+     "BW": "Meesho Commission (Excl. GST)",
+     "BX": "Meesho gold platform fee (excl GST)",
+     "BY": "Meesho mall platform fee (excl. GST)",
+     "BZ": "Fixed Fee (excl. GST)",
+     "CA": "Warehousing fee (excl Gst)",
+     "CB": "Return Shipping Charge (Excl. GST)",
+     "CC": "GST Compensation (PRP Shipping)",
+     "CD": "Shipping Charge (Excl. GST)",
+     "CE": "Other Support Service Charges (Excl. GST)",
+     "CF": "Waivers (Excl. GST)",
+     "CG": "Net Other Support Service Charges (Excl. GST)",
+     "CH": "GST on Meesho Commission",
+     "CI": "GST on Warehousing fee",
+     "CJ": "GST on meesho gold",
+     "CK": "GST on Meesho Mall platform fee",
+     "CL": "GST on Shipping Charge', 'CGST + SGST on Shipping Charge",
+     "CM": "GST on Return Shipping Charge",
+     "CN": "GST on Net Other Support Service Charges",
+     "CO": "GST on Fixed Fee",
+     "CP": "TCS",
+     "CQ": "TDS Rate %",
+     "CR": "TDS",
+     "CS": "Compensation",
+     "CT": "Claims",
+     "CU": "Recovery",
+     "CV": "Compensation Reason",
+     "CW": "Claims Reason",
+     "CX": "Recovery Reason",
+     "CY": "RS.Charge2",
+     "CZ": "S.Charge2",
+     "DA": "HNA4",
+     "DB": "HNA4",
+     "DC": "HNA4",
+     "DD": "HNA4",
+     "DE": "GST",
+     "DF": 0.0,
+     "DG": "Total Ads Cost",
+     "DH": "Net Referral Amount",
+     "DI": "Reason",
+     "DJ": "FileName",
+     "DK": "HNA5",
+     "DL": "HNA6"
+    },
+    "3": {
+     "A": 1.0,
+     "B": 0.0,
+     "C": 0.0,
+     "D": 0.0,
+     "E": 0.0,
+     "F": "NA",
+     "G": "Shadowfax",
+     "H": 0.0,
+     "L": 0.0,
+     "M": 0.0,
+     "N": 0.0,
+     "O": 0.0,
+     "P": 1.0,
+     "Q": 0.0,
+     "R": 0.0,
+     "S": 0.0,
+     "T": 0.0,
+     "U": 0.0,
+     "V": 0.0,
+     "W": 0.0,
+     "X": 1.0,
+     "Y": 0.0,
+     "Z": "RTO",
+     "AA": "MEESHO_SMART_COIN_FEE",
+     "AB": "NA",
+     "AC": "Maharashtra",
+     "AD": "NA",
+     "AE": 0.0,
+     "AF": 0.0,
+     "AG": 0.0,
+     "AH": 0.0,
+     "AK": 146.0,
+     "AL": "Upto 500gm",
+     "AM": 0.0,
+     "AN": 0.0,
+     "AO": 0.0,
+     "AP": 0.0,
+     "AQ": "..,5",
+     "AR": "Paid",
+     "AS": 0.0,
+     "AT": "27",
+     "AU": "03",
+     "AV": "Feb",
+     "AW": "Mar",
+     "AX": "2025",
+     "AY": "2025",
+     "AZ": "126596332856173056_1 | ..,5",
+     "BA": "126596332856173056_1",
+     "BB": 45715.0,
+     "BC": 45716.0,
+     "BD": "Airpod Pro with Silicon Case True Wireless Bluetooth Earphones with 3 Hours of Playtime & Compatible for all Smartphones (Black)",
+     "BE": "..,5",
+     "BF": "RTO",
+     "BG": 18.0,
+     "BH": 216.0,
+     "BI": 1.0,
+     "BJ": "SCBLN52025030300719998",
+     "BK": 45719.0,
+     "BL": 0.0,
+     "BM": "",
+     "BN": 291.0,
+     "BO": -291.0,
+     "BP": 0.0,
+     "BQ": 0.0,
+     "BR": 0.0,
+     "BS": 0.0,
+     "BT": 0.0,
+     "BU": 0.0,
+     "BV": 0.0,
+     "BW": 0.0,
+     "BX": 0.0,
+     "BY": 0.0,
+     "BZ": 0.0,
+     "CA": 0.0,
+     "CB": 0.0,
+     "CC": 0.0,
+     "CD": 0.0,
+     "CE": 0.0,
+     "CF": 0.0,
+     "CG": 0.0,
+     "CH": 0.0,
+     "CI": 0.0,
+     "CJ": 0.0,
+     "CK": 0.0,
+     "CL": 0.0,
+     "CM": 0.0,
+     "CN": 0.0,
+     "CO": 0.0,
+     "CP": 0.0,
+     "CQ": 0.1,
+     "CR": 0.0,
+     "CS": 0.0,
+     "CT": 0.0,
+     "CU": 0.0,
+     "CV": "",
+     "CW": "",
+     "CX": "",
+     "CY": 0.0,
+     "CZ": 0.0,
+     "DA": 0.0,
+     "DB": 0.0,
+     "DC": 0.0,
+     "DD": 0.0,
+     "DE": 0.0,
+     "DF": 0.0,
+     "DG": 0.0,
+     "DH": 0.0,
+     "DI": 0.0,
+     "DJ": "1260895_SP_ORDER_ADS_REFERRAL_PAYMENT_FILE_PREVIOUS_PAYMENT_2025-03-01_2025-03-30.xlsx"
+    },
+    "4": {
+     "A": 1.0,
+     "B": 0.0,
+     "C": 0.0,
+     "D": 0.0,
+     "E": 0.0,
+     "F": "NA",
+     "G": "PocketShip",
+     "H": 0.0,
+     "L": 0.0,
+     "M": 0.0,
+     "N": 0.0,
+     "O": 0.0,
+     "P": 1.0,
+     "Q": 0.0,
+     "R": 0.0,
+     "S": 0.0,
+     "T": 0.0,
+     "U": 0.0,
+     "V": 0.0,
+     "W": 0.0,
+     "X": 1.0,
+     "Y": 0.0,
+     "Z": "RTO",
+     "AA": "MEESHO_SMART_COIN_FEE",
+     "AB": "NA",
+     "AC": "Maharashtra",
+     "AD": "NA",
+     "AE": 0.0,
+     "AF": 0.0,
+     "AG": 0.0,
+     "AH": 0.0,
+     "AK": 146.0,
+     "AL": "Upto 500gm",
+     "AM": 0.0,
+     "AN": 0.0,
+     "AO": 0.0,
+     "AP": 0.0,
+     "AQ": "..,,1.',",
+     "AR": "Paid",
+     "AS": 0.0,
+     "AT": "27",
+     "AU": "03",
+     "AV": "Feb",
+     "AW": "Mar",
+     "AX": "2025",
+     "AY": "2025",
+     "AZ": "126559192891695232_1 | ..,,1.',",
+     "BA": "126559192891695232_1",
+     "BB": 45715.0,
+     "BC": 45716.0,
+     "BD": "Fancy product ,very nice high quality sound ",
+     "BE": "..,,1.',",
+     "BF": "RTO",
+     "BG": 18.0,
+     "BH": 244.0,
+     "BI": 1.0,
+     "BJ": "SCBLN52025030300719998",
+     "BK": 45719.0,
+     "BL": 0.0,
+     "BM": "",
+     "BN": 290.0,
+     "BO": -290.0,
+     "BP": 0.0,
+     "BQ": 0.0,
+     "BR": 0.0,
+     "BS": 0.0,
+     "BT": 0.0,
+     "BU": 0.0,
+     "BV": 0.0,
+     "BW": 0.0,
+     "BX": 0.0,
+     "BY": 0.0,
+     "BZ": 0.0,
+     "CA": 0.0,
+     "CB": 0.0,
+     "CC": 0.0,
+     "CD": 0.0,
+     "CE": 0.0,
+     "CF": 0.0,
+     "CG": 0.0,
+     "CH": 0.0,
+     "CI": 0.0,
+     "CJ": 0.0,
+     "CK": 0.0,
+     "CL": 0.0,
+     "CM": 0.0,
+     "CN": 0.0,
+     "CO": 0.0,
+     "CP": 0.0,
+     "CQ": 0.1,
+     "CR": 0.0,
+     "CS": 0.0,
+     "CT": 0.0,
+     "CU": 0.0,
+     "CV": "",
+     "CW": "",
+     "CX": "",
+     "CY": 0.0,
+     "CZ": 0.0,
+     "DA": 0.0,
+     "DB": 0.0,
+     "DC": 0.0,
+     "DD": 0.0,
+     "DE": 0.0,
+     "DF": 0.0,
+     "DG": 0.0,
+     "DH": 0.0,
+     "DI": 0.0,
+     "DJ": "1260895_SP_ORDER_ADS_REFERRAL_PAYMENT_FILE_PREVIOUS_PAYMENT_2025-03-01_2025-03-30.xlsx"
+    }
+   },
+   "colstats": {
+    "A": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "B": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "C": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "D": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "E": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "F": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "G": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "H": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "I": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "J": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "K": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "L": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "M": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "N": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "O": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "P": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "Q": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "R": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "S": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "T": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "U": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "V": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "W": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "X": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "Y": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "Z": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AA": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AB": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AC": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AD": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AE": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "AF": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "AG": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "AH": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "AI": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AJ": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "AK": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "AL": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AM": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 373,
+      "num": 43118
+     },
+     "formulas": {}
+    },
+    "AN": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "AO": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "AP": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "AQ": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AR": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AS": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "AT": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AU": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AV": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AW": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AX": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AY": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "AZ": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "BA": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "BB": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BC": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 13,
+      "num": 43478
+     },
+     "formulas": {}
+    },
+    "BD": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43119,
+      "num": 372
+     },
+     "formulas": {}
+    },
+    "BE": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43391,
+      "num": 100
+     },
+     "formulas": {}
+    },
+    "BF": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43491
+     },
+     "formulas": {}
+    },
+    "BG": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BH": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BI": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BJ": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 41712,
+      "num": 1779
+     },
+     "formulas": {}
+    },
+    "BK": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BL": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BM": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43119,
+      "num": 372
+     },
+     "formulas": {}
+    },
+    "BN": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BO": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BP": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BQ": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BR": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BS": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BT": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BU": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BV": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BW": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BX": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BY": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "BZ": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CA": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CB": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CC": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CD": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CE": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CF": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CG": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CH": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CI": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CJ": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CK": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CL": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CM": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CN": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CO": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CP": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CQ": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 2011,
+      "num": 41480
+     },
+     "formulas": {}
+    },
+    "CR": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 2011,
+      "num": 41480
+     },
+     "formulas": {}
+    },
+    "CS": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CT": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CU": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CV": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43119,
+      "num": 372
+     },
+     "formulas": {}
+    },
+    "CW": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43119,
+      "num": 372
+     },
+     "formulas": {}
+    },
+    "CX": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 43119,
+      "num": 372
+     },
+     "formulas": {}
+    },
+    "CY": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "CZ": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "DA": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "DB": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "DC": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "DD": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "DE": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "DF": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "num": 43491
+     },
+     "formulas": {}
+    },
+    "DG": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "DH": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "DI": {
+     "nval": 43491,
+     "nfml": 0,
+     "types": {
+      "str": 1,
+      "num": 43490
+     },
+     "formulas": {}
+    },
+    "DJ": {
+     "nval": 43119,
+     "nfml": 0,
+     "types": {
+      "str": 43119
+     },
+     "formulas": {}
+    },
+    "DK": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    },
+    "DL": {
+     "nval": 1,
+     "nfml": 0,
+     "types": {
+      "str": 1
+     },
+     "formulas": {}
+    }
+   },
+   "unknown_ids": {
+    "537": 1
+   }
+  }
+ }
+}
