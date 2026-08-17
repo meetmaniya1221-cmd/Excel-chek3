@@ -1,0 +1,84 @@
+# Kesri Enterprise (supplier 2843411) — June 2026 reconciliation run
+
+First run of the clone engine on real seller data, 17 Aug 2026.
+
+## Input files supplied
+
+| File | Rows | Role |
+|---|---|---|
+| `meesho_PREVIOUS_PAYMENT_2026-06-01_2026-06-30.zip` → `2843411_SP_ORDER_ADS_REFERRAL_PAYMENT_FILE_...xlsx` | 5,913 order-payment rows + 72 ads rows | settlement, fees, taxes, claims |
+| `Orders_2026-06-01_2026-06-30_...csv` | 7,329 | order universe, customer state |
+| `completed_delivered_*.csv` | 2,007 | returns that came **back** to the seller |
+| `completed_lost_*.csv` | 9 | returns **lost** in transit |
+| `intransit_*.csv` / `ofd_reverse_*.csv` | 2 / 128 | returns still moving |
+| `Supplier-2843411_Status-all_*.csv` | 491 | claim tickets → Claim Status |
+
+All seven files were classified and consumed automatically by `--data`.
+
+## Schema discovery: Meesho has two payment-file generations
+
+The dossier predicted this from a concatenated header in the sample workbook
+(`GST on Shipping Charge', 'CGST + SGST on Shipping Charge`). Confirmed:
+
+| | Sample (2025, M Meldi Krupa) | Real (2026, Kesri) |
+|---|---|---|
+| Order Payments columns | 116 | 43 |
+| Fee columns | "Excl. GST" + 8 separate `GST on <fee>` columns | **"Incl. GST"**, per-fee GST columns dropped |
+| Sale amount header | `Total Sale Amount (Incl. Commission & GST)` | `Total Sale Amount (Incl. **Shipping** & GST)` |
+| Listing price header | `Listing Price (Incl. GST & Commission)` | `Listing Price (Incl. taxes)` |
+
+The engine reads both through one column map, and its GST method auto-selects:
+explicit columns when present, otherwise the settlement-identity derivation.
+
+## Validation against the raw file
+
+Independent re-read of the payment workbook vs the engine's output:
+
+| Check | Raw file | Engine | Verdict |
+|---|---|---|---|
+| Σ Final Settlement | 727,084.58 | 727,084.58 | exact |
+| Σ TCS | −4,114.67 | −4,114.67 (recomputed −4,113.55) | exact / ₹1.12 rounding |
+| Σ TDS | −823.15 | −823.15 (recomputed −822.71) | exact / ₹0.44 rounding |
+| Σ Claims / Recovery / Compensation | 14,169.77 / −904.79 / 385.42 | identical | exact |
+| **Fees back-solved from the settlement identity** | **−252,425.36** (sum of the explicit fee columns) | **−252,425.36** (derived, never read) | **exact** |
+
+That last row is the important one: the GST engine derives Meesho's total fees
+from the settlement equation alone and lands on the file's own fee columns to the
+paisa — on a file generation it has never seen. The 18/118 credit extraction rests
+on that identity, so the GST position is trustworthy here.
+
+## Results (June 2026)
+
+```
+orders 5,833 · delivered 3,711 (64%) · RTO 1,569 (27%) · customer return 547 (12%)
+net sales        970,797.36        settlement       727,084.58
+ads spend        −28,524.22        TCS+TDS           −4,937.82
+claims            14,169.77        recovery            −904.79
+GST credits       38,505.56        sales GST debit −148,087.73
+net GST position −105,231.03
+Final P&L (before product cost)   698,560.36
+Final P&L incl. GST position      593,329.33
+```
+
+**These figures exclude product cost** — no SKU cost master was supplied, so
+`Purchase = 0` and profit is overstated by exactly the cost of goods sold.
+`output/SKU_COST_TEMPLATE.xlsx` lists all 26 SKUs awaiting a price.
+
+## Outstanding inputs
+
+1. **SKU cost master** (26 SKUs) — blocks the only missing P&L component.
+2. **May 2026 orders export** — 2,638 payment rows (45%) are for orders placed in
+   May and settled in June, so their customer state is unknown and the State
+   report groups them under "Unknown".
+3. **Courier rate card** — the shipping-overcharge audit is inert without expected
+   rates; couriers themselves are now resolved (Shadowfax 900, PocketShip 488,
+   Delhivery 236, Valmo 152, Xpress Bees 84).
+
+## Notable outputs
+
+- **Pending Payments: 2,149 orders** delivered or shipped with no settlement row —
+  money Meesho has not yet paid.
+- **Claim tickets**: 164 approved, 13 rejected, rest open/NA.
+- **Return outcomes now resolved from data**, not inferred: 1,843 returns confirmed
+  received back, 13 lost, 4 still in transit. This is the signal the sample
+  workbook never exposed, and it drives cost recognition (`Config.cost_recognition`).

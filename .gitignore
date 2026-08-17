@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Seller data and generated reports stay local: these carry client order,
+# settlement and SKU detail and must not land in version control.
+output/
+raw/
+*.pkl
+*.rar
+*.zip
