@@ -310,14 +310,17 @@ def load_costs(paths) -> pd.DataFrame:
     if not frames:
         return pd.DataFrame()
     df = pd.concat(frames, ignore_index=True, sort=False)
-    for c in ("product_cost", "packaging_cost", "gst_pct"):
-        if c in df.columns:
-            df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0.0)
-        else:
-            df[c] = 0.0
-    df["unit_cost"] = df["product_cost"] + df["packaging_cost"]
+    for c in ("final_cost", "product_cost", "packaging_cost", "gst_pct"):
+        df[c] = pd.to_numeric(df.get(c), errors="coerce") if c in df.columns else pd.NA
+        df[c] = pd.to_numeric(df[c], errors="coerce")
+
+    # One "Final Cost" per unit is the supported format; fall back to the older
+    # product + packaging split when a legacy cost list is supplied instead.
+    split = df["product_cost"].fillna(0.0) + df["packaging_cost"].fillna(0.0)
+    df["unit_cost"] = df["final_cost"].where(df["final_cost"].notna(), split)
     df["sku_key"] = df["sku"].map(clean_sku)
-    # last definition wins (cost masters are appended over time)
+    df = df[df["unit_cost"].notna() & (df["unit_cost"] > 0)]
+    # last definition wins (cost lists get appended to over time)
     return df.drop_duplicates(subset=["sku_key"], keep="last").reset_index(drop=True)
 
 

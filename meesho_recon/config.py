@@ -34,9 +34,12 @@ class Config:
     rto_packaging_loss_allowance: float = 0.0
 
     # --- logistics ---
+    # Shipping is charged to the customer, and whatever Meesho deducts is already
+    # inside Final Settlement Amount, so shipping needs no separate treatment in
+    # the P&L. The rate card is therefore optional: supply one only to audit
+    # Meesho's shipping deductions against expected rates. Empty = audit off.
     default_weight_slab: str = "Upto 500gm"
-    # rate card: {(courier, weight_slab): {"forward": x, "return": y}}
-    # negative numbers = charges (matching Meesho sign convention)
+    # {(courier, weight_slab): {"forward": x, "return": y}}, negative = a charge
     courier_rate_card: dict = field(default_factory=dict)
 
     # --- behaviour switches ---
@@ -198,12 +201,12 @@ CLAIM_FIELDS = {
 
 COST_FIELDS = {
     "sku":            ["sku", "supplier sku"],
+    # One landed cost per unit is all the sheet asks for. The older split columns
+    # are still read so a cost list kept in the previous format still loads.
+    "final_cost":     ["final cost", "total cost", "landed cost", "unit cost", "cost"],
     "product_name":   ["product name"],
-    "product_cost":   ["product cost", "cost", "purchase cost"],
+    "product_cost":   ["product cost", "purchase cost"],
     "packaging_cost": ["pakaging cost", "packaging cost", "packing cost"],
-    "gst_pct":        ["gst %", "gst percent", "purchase gst %", "gst"],
-    "cost_incl_gst":  ["is product cost with gst ?", "is product cost with gst",
-                       "cost includes gst"],
+    "gst_pct":        ["purchase gst %", "gst %", "gst percent"],
     "substitute_sku": ["substitute sku", "substitutesku"],
-    "weight_slab":    ["weight slab", "weight"],
 }

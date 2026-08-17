@@ -103,18 +103,18 @@ NOTE_FONT = Font(name="Arial", size=9, italic=True, color="5B6660")
 TITLE_FONT = Font(name="Arial", size=13, bold=True, color="0B6B57")
 
 COST_HELP = [
-    "Fill the three yellow columns for every SKU below, then send this file back.",
+    "Fill the yellow Final Cost column for every SKU below, then send this file back.",
     "",
-    "Product Cost      what you pay your supplier for one unit (before packaging)",
-    "Packaging Cost    packing material per unit; leave 0 if already inside product cost",
-    "Purchase GST %    input GST credit you can claim on the purchase; 0 if you buy",
-    "                  without a GST invoice. Enter 18 for 18%, not 0.18.",
+    "Final Cost   your total landed cost for ONE unit -- product, packaging and",
+    "             anything else you spend to get it ready to ship, as a single",
+    "             number. Nothing else to break out.",
     "",
-    "Cost Incl. GST?   Y if Product Cost already includes GST, otherwise N.",
+    "Product Name / Orders / Delivered / Avg Sale Price come from your own data and",
+    "are there to help you price each SKU -- do not edit them. Rows are sorted by",
+    "order volume, so the SKUs at the top move the profit number the most.",
     "",
-    "Orders / Delivered / Avg Sale Price are filled in from your data to help you",
-    "price each SKU -- do not edit them. Rows are sorted by order volume, so the",
-    "SKUs at the top move the profit number the most.",
+    "Leave a row blank only if you genuinely do not sell it; blank rows are",
+    "reported as unpriced and their profit will be overstated.",
 ]
 
 
@@ -130,17 +130,13 @@ def write_cost_template(path: Path, skus: pd.DataFrame,
     path.parent.mkdir(parents=True, exist_ok=True)
     existing = existing or {}
 
-    cols = ["SKU", "Product Cost", "Packaging Cost", "Purchase GST %", "Cost Incl. GST?",
-            "Product Name", "Orders", "Delivered", "Avg Sale Price"]
+    cols = ["SKU", "Final Cost", "Product Name", "Orders", "Delivered", "Avg Sale Price"]
     rows = []
     for _, r in skus.iterrows():
         prev = existing.get(str(r["sku"]), {})
         rows.append({
             "SKU": r["sku"],
-            "Product Cost": prev.get("product_cost", None),
-            "Packaging Cost": prev.get("packaging_cost", None),
-            "Purchase GST %": prev.get("gst_pct", None),
-            "Cost Incl. GST?": prev.get("cost_incl_gst", None),
+            "Final Cost": prev.get("unit_cost", None),
             "Product Name": str(r.get("product_name", ""))[:70],
             "Orders": r.get("orders", 0),
             "Delivered": r.get("delivered", 0),
@@ -152,14 +148,15 @@ def write_cost_template(path: Path, skus: pd.DataFrame,
         df.to_excel(writer, sheet_name="SKU Costs", index=False, startrow=3)
         ws = writer.sheets["SKU Costs"]
 
-        ws.cell(row=1, column=1, value="SKU Costs — fill the yellow columns and send back")
+        ws.cell(row=1, column=1,
+                value="SKU Costs — fill the yellow Final Cost column and send back")
         ws.cell(row=1, column=1).font = TITLE_FONT
         ws.cell(row=2, column=1,
                 value=f"{len(df)} SKUs from your uploaded data · "
                       "profit cannot be calculated until these are filled")
         ws.cell(row=2, column=1).font = NOTE_FONT
 
-        widths = [26, 13, 15, 14, 15, 52, 10, 11, 14]
+        widths = [30, 14, 58, 10, 11, 15]
         for j, (col, w) in enumerate(zip(cols, widths), start=1):
             c = ws.cell(row=4, column=j)
             c.fill, c.font = HEAD_FILL, HEAD_FONT
@@ -171,15 +168,14 @@ def write_cost_template(path: Path, skus: pd.DataFrame,
             for j in range(1, len(cols) + 1):
                 c = ws.cell(row=r, column=j)
                 c.border = BORDER
-                if 2 <= j <= 5:                       # the seller's input columns
+                if j == 2:                            # the one column the seller fills
                     c.fill, c.font = INPUT_FILL, INPUT_FONT
-                    if j <= 3:
-                        c.number_format = MONEY_FMT
+                    c.number_format = MONEY_FMT
                 else:
                     c.font = BODY_FONT
-                    if j in (7, 8):
+                    if j in (4, 5):
                         c.number_format = INT_FMT
-                    elif j == 9:
+                    elif j == 6:
                         c.number_format = MONEY_FMT
 
         ws.freeze_panes = "A5"

@@ -89,16 +89,27 @@ regenerated sheet. `--report-only` runs everything except product cost and profi
 Verified on this dataset: step 1 emitted 26 SKUs and stopped; after the sheet was
 filled, step 2 reported "all 26 SKUs priced" and produced the full P&L.
 
+## Seller decisions taken (17 Aug 2026)
+
+- **One cost column, not several.** The sheet asks for a single `Final Cost` per
+  unit — the seller's total landed cost — instead of splitting product, packaging
+  and purchase GST. Legacy cost lists using the split columns still load.
+- **Shipping is not a cost line.** The customer pays the courier charge, and
+  whatever Meesho deducts is already inside Final Settlement Amount, so shipping
+  needs no separate treatment. The courier rate card and its overcharge audit are
+  therefore optional, and off unless a card is supplied. Courier is still resolved
+  per sub-order from the returns exports (Shadowfax 900, PocketShip 488,
+  Delhivery 236, Valmo 152, Xpress Bees 84) and remains available for reporting.
+
 ## Outstanding inputs
 
-1. **SKU cost master** (26 SKUs) — the step-1 sheet is waiting to be filled;
-   it is the only missing P&L component.
-2. **May 2026 orders export** — 2,638 payment rows (45%) are for orders placed in
-   May and settled in June, so their customer state is unknown and the State
-   report groups them under "Unknown".
-3. **Courier rate card** — the shipping-overcharge audit is inert without expected
-   rates; couriers themselves are now resolved (Shadowfax 900, PocketShip 488,
-   Delhivery 236, Valmo 152, Xpress Bees 84).
+1. **SKU costs** (26 SKUs) — the step-1 sheet is waiting to be filled; this is the
+   only remaining P&L component.
+
+Resolved since the first run: the **May 2026 orders export** was supplied, lifting
+payment-row-to-order matching from 55% to **99.8%** (16,337 orders across May and
+June), so customer state is now populated for effectively the whole payment file
+and the State report no longer collapses into "Unknown".
 
 ## Notable outputs
 
