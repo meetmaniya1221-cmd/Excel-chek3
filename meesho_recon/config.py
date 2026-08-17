@@ -50,8 +50,21 @@ class Config:
     # {(courier, weight_slab): {"forward": x, "return": y}}, negative = a charge
     courier_rate_card: dict = field(default_factory=dict)
 
-    # --- behaviour switches ---
-    # "derive"  -> back-solve fees from the settlement identity, take 18/118 (vendor method, PROVEN)
+    # --- GST ---
+    # How the GST line is computed.
+    #   "settlement_flat" -> a flat percentage of the settlement actually received
+    #                        in the bank. One number, nothing else counted.
+    #   "detailed"        -> the full model: output GST on sales, input credit on
+    #                        Meesho's fees, input credit on purchases.
+    gst_method: str = "settlement_flat"
+    gst_settlement_rate: float = 0.05     # 5% of bank settlement
+    # Base for that percentage. "net" is the money actually banked, after Meesho
+    # nets off returns -- the literal bank settlement. "gross" charges the rate on
+    # receipts only and ignores the return reversals.
+    gst_settlement_base: str = "net"
+
+    # Only used when gst_method == "detailed":
+    # "derive"  -> back-solve fees from the settlement identity, take 18/118 (PROVEN)
     # "columns" -> sum the explicit "GST on ..." columns when the file provides them
     # "auto"    -> use columns when they are populated, else derive
     gst_credit_method: str = "auto"

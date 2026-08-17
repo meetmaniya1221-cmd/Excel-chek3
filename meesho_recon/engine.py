@@ -220,12 +220,33 @@ def add_purchase(df: pd.DataFrame, costs: pd.DataFrame, cfg: Config) -> pd.DataF
 
 
 def add_gst(df: pd.DataFrame, cfg: Config) -> pd.DataFrame:
-    """The GST engine. [PROVEN 100% on the sample]
+    """The GST line.
 
-    Input credit on Meesho's fees is *derived* rather than read: total fees are
-    back-solved from the settlement identity, then the 18/118 slice is taken.
+    Default ("settlement_flat"): a flat percentage of the settlement that actually
+    reaches the bank -- one figure, with no output/input breakdown. This is what
+    a seller who files on turnover needs, and it is the mode this client uses.
+
+    "detailed" reproduces the vendor workbook's model instead: output GST on the
+    net sale, plus input credit on Meesho's fees derived by back-solving total
+    fees from the settlement identity and taking the 18/118 slice
         settlement = net_sale - fees_incl_gst + tcs + tds + compensation + claims + recovery
+    plus input credit on purchases. [PROVEN 100% on the 2025 sample and on the
+    2026 file, where the derived fees matched the file's own fee columns exactly.]
     """
+    if cfg.gst_method == "settlement_flat":
+        rate = cfg.gst_settlement_rate
+        settle = np.where(df["is_ads"], 0.0, df["settlement"])
+        # "net" follows the money: Meesho nets return reversals off the payout, so
+        # the bank receives the net figure and the GST on a returned sale unwinds
+        # with it. "gross" taxes receipts and lets the reversals go untaxed.
+        base = settle if cfg.gst_settlement_base == "net" else np.clip(settle, 0, None)
+        df["gst_on_settlement"] = -base * rate
+        df["meesho_gst_credits"] = 0.0
+        df["purchase_gst_credit"] = 0.0
+        df["sales_gst_debit"] = df["gst_on_settlement"]
+        df["available_gst_credit"] = df["gst_on_settlement"]
+        return df
+
     non_fee = (df["total_sales2"] + df["tcs"] + df["tds"]
                + df["compensation"] + df["claims"] + df["recovery"])
     fees_incl_gst = df["settlement"] - non_fee                 # negative = charged

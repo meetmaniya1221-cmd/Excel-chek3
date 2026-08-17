@@ -188,27 +188,49 @@ old behaviour. June + July: 12,108 terminal, 73 still moving.
 orders (terminal)              11,954
 delivered                       7,948   settlement/unit 210.65  cost/unit 188.59
                                         margin/unit      22.06
-purchase                    1,507,750
+settlement banked           1,559,070
+purchase                   -1,507,750
 ads spend                     -53,034
-FINAL P&L                      -1,714      (essentially break-even)
-GST position                 -228,193
-FINAL P&L incl GST           -229,907
+operating P&L                  -1,714      (essentially break-even)
+GST @ 5% of settlement        -77,954
+FINAL P&L                     -79,667      (-6.66 per order)
 ```
 
 Policy sensitivity, June + July: `lost_only` −1,714 · `delivered` −189 ·
 `unrecovered` −377,544. The last is not meaningful until the returns exports cover
 the whole period.
 
+### GST simplified to a flat rate on settlement (seller instruction, 17 Aug 2026)
+
+The detailed GST model — output GST on the net sale, input credit derived from
+Meesho's fees, input credit on purchases — is not how this seller files. GST is
+now **5% of the settlement banked**, and nothing else is counted:
+
+```
+Config.gst_method           = "settlement_flat"   (was "detailed")
+Config.gst_settlement_rate  = 0.05
+Config.gst_settlement_base  = "net"               (money actually banked)
+```
+
+Base choice matters because Meesho nets return reversals off the payout:
+
+| Base | Meaning | June+July GST |
+|---|---|---|
+| **`net`** (default) | settlement after return reversals — what the bank receives | **−77,954** |
+| `gross` | receipts only, reversals untaxed | −85,433 |
+
+`detailed` remains available and still reproduces the vendor workbook exactly; it
+is simply not this client's filing basis.
+
 ### What the numbers say
 
 **Operations are break-even, not loss-making.** Delivered units earn ₹22.06 each;
 RTO and returns consume almost exactly that.
 
-**The GST position is the real hole.** Output GST of ₹310,181 is owed on sales
-against only ₹81,988 of input credit from Meesho's fees. Purchase input credit is
-**zero**, because stock is bought without GST invoices. On ₹1,507,750 of purchases
-a GST invoice would carry roughly ₹230,000 of credit — very close to the entire
-₹228,193 shortfall.
+**GST turns break-even into a loss.** At 5% of the ₹1,559,070 banked, GST is
+₹77,954 — and with operations at −₹1,714, that is essentially the whole loss:
+**final P&L −₹79,667**, about ₹6.66 per order. Every rupee of margin improvement
+goes straight to the bottom line here.
 
 **The CMF line loses money; everything else earns.**
 
