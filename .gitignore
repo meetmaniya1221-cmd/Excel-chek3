@@ -9,3 +9,5 @@ raw/
 *.pkl
 *.rar
 *.zip
+portal_data/
+nohup.out
