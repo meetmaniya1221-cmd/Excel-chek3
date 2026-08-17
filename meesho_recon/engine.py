@@ -11,7 +11,8 @@ import pandas as pd
 
 from .config import (COST_RECOGNISED_STATUSES, ORDER_STATUS_MAP, STATUS_ADS,
                      STATUS_CANCELLED, STATUS_DELIVERED, STATUS_EXCHANGE, STATUS_LOST,
-                     STATUS_RETURN, STATUS_RTO, STATUS_SHIPPED, Config)
+                     STATUS_RETURN, STATUS_RTO, STATUS_SHIPPED, TERMINAL_STATUSES,
+                     Config)
 from .ingest import clean_sku
 
 MONEY = [
@@ -147,6 +148,12 @@ def add_counters(df: pd.DataFrame, cfg: Config) -> pd.DataFrame:
     # orders with money movement -> denominator of Avg Return Charges
     df["p_count"] = (np.where(df["total_payment"] != 0, df["total_order"], 0.0)
                      if "total_payment" in df.columns else df["total_order"])
+
+    # Has this order finished its journey? A parcel still in transit -- forward or
+    # on its way back -- has incurred cost without a final settlement, so it is
+    # excluded from per-order economics.
+    still_moving = _col(df, "return_outcome", "none").eq("in_transit")
+    df["is_final"] = df["status"].isin(TERMINAL_STATUSES) & ~still_moving & ~df["is_ads"]
     return df
 
 
@@ -185,10 +192,17 @@ def add_purchase(df: pd.DataFrame, costs: pd.DataFrame, cfg: Config) -> pd.DataF
     df["total_purchase_cost"] = df["unit_cost"] * qty
 
     policy = cfg.cost_recognition
+    returned_units = np.maximum(df["customer_return"], df["rto"])
+
     if policy == "delivered":
         units = df["delivered"] + df["exchange"]
     elif policy == "delivered_return":
         units = df["delivered"] + df["customer_return"] + df["exchange"]
+    elif policy == "lost_only":
+        # Stock is written off only where a returns export says it was lost.
+        # Everything else is assumed to have come back, which is what RTO means.
+        lost = _col(df, "return_outcome", "none").eq("lost") | (df["lost_qty"] > 0)
+        units = df["delivered"] + df["exchange"] + np.where(lost, returned_units, 0.0)
     else:                                   # "unrecovered"
         # Preferred signal: the returns export says whether the parcel came back.
         # Fallback when no returns file is supplied: a full sale reversal implies
@@ -199,7 +213,7 @@ def add_purchase(df: pd.DataFrame, costs: pd.DataFrame, cfg: Config) -> pd.DataF
             recovered = (df["sale_amount"] + df["sale_return_amount"]).abs().lt(0.01)
         returned = (df["customer_return"] > 0) | (df["rto"] > 0)
         units = df["delivered"] + df["exchange"] + np.where(
-            returned & ~recovered, np.maximum(df["customer_return"], df["rto"]), 0.0)
+            returned & ~recovered, returned_units, 0.0)
     df["cost_units"] = units
     df["purchase"] = df["total_purchase_cost"] * units
     return df

@@ -153,6 +153,74 @@ confirm the stock came back and writes their cost off (`cost_recognition:
 Either way the month is a loss; the true figure sits between the two and is pinned
 down by a returns export covering the full period.
 
+---
+
+## Correction and re-run: June + July, terminal orders only (17 Aug 2026)
+
+Two changes were made after the July payment file arrived.
+
+### 1. Cost recognition default was wrong
+
+The earlier default (`unrecovered`) charged product cost for every RTO or return
+the returns exports did not explicitly confirm as received back. Returns exports
+lag: July's RTOs were mostly not in the 17-Aug download, so 1,562 RTO orders were
+treated as lost stock and **₹285,840 was written off that had simply not been
+recorded yet**. An RTO parcel is Returned To Origin — it comes back by definition.
+
+The default is now `lost_only`: stock is written off only where a returns export
+states it was lost. Effect on the June figure reported earlier:
+
+| June 2026 | Purchase | Final P&L |
+|---|---|---|
+| as first reported (`unrecovered`) | 758,220 | −59,660 |
+| **corrected (`lost_only`)** | **707,580** | **−11,777** |
+
+### 2. Per-order figures now count terminal orders only
+
+Orders still in transit have incurred cost without a final settlement, so they
+dilute per-order economics. KPIs and the SKU/State grids now count only orders in
+a terminal state (`Config.final_states_only`); `--include-in-flight` restores the
+old behaviour. June + July: 12,108 terminal, 73 still moving.
+
+### Result, June + July combined
+
+```
+orders (terminal)              11,954
+delivered                       7,948   settlement/unit 210.65  cost/unit 188.59
+                                        margin/unit      22.06
+purchase                    1,507,750
+ads spend                     -53,034
+FINAL P&L                      -1,714      (essentially break-even)
+GST position                 -228,193
+FINAL P&L incl GST           -229,907
+```
+
+Policy sensitivity, June + July: `lost_only` −1,714 · `delivered` −189 ·
+`unrecovered` −377,544. The last is not meaningful until the returns exports cover
+the whole period.
+
+### What the numbers say
+
+**Operations are break-even, not loss-making.** Delivered units earn ₹22.06 each;
+RTO and returns consume almost exactly that.
+
+**The GST position is the real hole.** Output GST of ₹310,181 is owed on sales
+against only ₹81,988 of input credit from Meesho's fees. Purchase input credit is
+**zero**, because stock is bought without GST invoices. On ₹1,507,750 of purchases
+a GST invoice would carry roughly ₹230,000 of credit — very close to the entire
+₹228,193 shortfall.
+
+**The CMF line loses money; everything else earns.**
+
+| Group | SKUs | Orders | Cost/unit | Settlement/unit | Margin/unit | Net |
+|---|---|---|---|---|---|---|
+| CMF | 4 | 6,723 | 225–227 | 225–234 | **−0.2 to 7.0** | **−50,086** |
+| Rest | 29 | 5,231 | 125–265 | 154–324 | **29–62** | **+101,406** |
+
+`black CMF` alone is −29,095 across 4,325 orders on a ₹6.96 margin against a 21%
+RTO rate. The Airpod/WA SKUs run ₹40–62 margins and absorb RTO rates of 27–41%
+while still earning.
+
 ## Outstanding inputs
 
 1. **Returns export covering May–June in full** — would resolve the 268 unconfirmed

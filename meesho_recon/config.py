@@ -21,13 +21,21 @@ class Config:
     purchase_gst_rate: float = 0.0   # input GST credit on purchases (0 for M Meldi Krupa)
     cost_includes_gst: bool = False
 
-    # Which units consume product cost. The vendor's sample splits customer returns
-    # roughly 60/40 between "cost written off" and "stock recovered" on a signal that
-    # is NOT in the payment file (docs section H) -- supply returns data to resolve it.
-    #   "delivered"        -> only delivered units (most conservative, Σ 3.71 L on sample)
-    #   "delivered_return" -> delivered + customer return + exchange (Σ 4.08 L on sample)
-    #   "unrecovered"      -> delivered + returns NOT confirmed received back (vendor-like)
-    cost_recognition: str = "unrecovered"
+    # Which units consume product cost.
+    #
+    # An RTO parcel is Returned To Origin -- it comes back to the seller by
+    # definition -- and a customer return normally comes back too. So stock is
+    # assumed recovered unless a returns export explicitly reports it lost. This
+    # matters because returns exports lag: a month whose returns have not been
+    # downloaded yet would otherwise have its entire RTO stock written off,
+    # inventing a loss out of missing paperwork.
+    #   "lost_only"        -> delivered + exchange + units explicitly reported lost
+    #                         (default; only what the data proves was never returned)
+    #   "delivered"        -> delivered + exchange only; ignores even confirmed losses
+    #   "unrecovered"      -> delivered + exchange + every return not confirmed
+    #                         recovered. Only meaningful when the returns exports
+    #                         cover the whole period, otherwise it overstates cost.
+    cost_recognition: str = "lost_only"
 
     # --- allowances stamped on ads rows in the sample (semantics unconfirmed) ---
     return_loss_allowance: float = 0.0
@@ -51,6 +59,12 @@ class Config:
     # count an order once per sub-order (vendor convention) on its first payment row
     count_orders_on_first_row: bool = True
 
+    # Per-order economics are only meaningful once an order has finished its
+    # journey: a shipment still in transit has had its cost incurred but not its
+    # settlement received, so including it understates margin per order. When True
+    # the KPIs and per-order ratios count only orders in a terminal state.
+    final_states_only: bool = True
+
 
 # Statuses, normalised to the vendor's "Live Order Status 2" vocabulary
 STATUS_DELIVERED = "Delivered"
@@ -64,6 +78,11 @@ STATUS_ADS = "Ads Cost"
 
 # Units that physically reached a customer -> purchase cost is recognised (BR-05)
 COST_RECOGNISED_STATUSES = {STATUS_DELIVERED, STATUS_RETURN, STATUS_EXCHANGE}
+
+# An order has finished its journey: the money is settled and the stock position
+# is known. Anything else is still moving and distorts per-order averages.
+TERMINAL_STATUSES = {STATUS_DELIVERED, STATUS_RETURN, STATUS_RTO,
+                     STATUS_EXCHANGE, STATUS_CANCELLED, STATUS_LOST}
 
 # Meesho raw order-status strings -> canonical status
 ORDER_STATUS_MAP = {

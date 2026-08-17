@@ -71,6 +71,13 @@ def _derived(g: pd.DataFrame) -> pd.DataFrame:
     return g.replace([np.inf, -np.inf], np.nan).fillna(0.0)
 
 
+def finalised(df: pd.DataFrame, final_only: bool = True) -> pd.DataFrame:
+    """Rows whose order has reached a terminal state (see Config.final_states_only)."""
+    if not final_only or "is_final" not in df.columns:
+        return df
+    return df[df["is_final"] | df.get("is_ads", False)]
+
+
 def _aggregate(df: pd.DataFrame, by: list[str]) -> pd.DataFrame:
     src = {name: col for name, col in MEASURES if col in df.columns}
     agg = df.groupby(by, dropna=False).agg(**{n: (c, "sum") for n, c in src.items()})
@@ -78,17 +85,17 @@ def _aggregate(df: pd.DataFrame, by: list[str]) -> pd.DataFrame:
     return _derived(agg).reset_index()
 
 
-def sku_report(df: pd.DataFrame) -> pd.DataFrame:
+def sku_report(df: pd.DataFrame, final_only: bool = True) -> pd.DataFrame:
     """Analysis Report equivalent: one row per SKU, 35 measures."""
-    out = _aggregate(df, ["supplier_sku"])
+    out = _aggregate(finalised(df, final_only), ["supplier_sku"])
     return out.sort_values("Final P & L", ascending=False).reset_index(drop=True)
 
 
-def state_report(df: pd.DataFrame) -> pd.DataFrame:
+def state_report(df: pd.DataFrame, final_only: bool = True) -> pd.DataFrame:
     """Region equivalent: one row per customer state."""
     if "state" not in df.columns:
         return pd.DataFrame()
-    out = _aggregate(df, ["state"])
+    out = _aggregate(finalised(df, final_only), ["state"])
     return out.sort_values("Final P & L", ascending=False).reset_index(drop=True)
 
 
@@ -103,9 +110,9 @@ def grand_total(df: pd.DataFrame) -> pd.Series:
     return _aggregate(tmp, ["_all"]).iloc[0]
 
 
-def kpis(df: pd.DataFrame) -> dict:
+def kpis(df: pd.DataFrame, final_only: bool = True) -> dict:
     """The VBA KPI panel (CalculationOfPivot), reproduced."""
-    t = grand_total(df)
+    t = grand_total(finalised(df, final_only))
     settle, ads, ref = t["Settlement"], t["Ads Cost"], t["Referral Amount"]
     purchase, gross = t["Purchase"], t["Gross Profit or Loss"]
     total, rto, delivered = t["Total Order"], t["RTO"], t["Delivered"]
@@ -137,6 +144,9 @@ def kpis(df: pd.DataFrame) -> dict:
         "P/L % by Settlement": safe(pl, settle + t["Claims Amt"] + 1),
         "Final P & L": t["Final P & L"],
         "Final P & L with GST": t["Final PL with GST"],
+        "Margin per Delivered Order": safe(t["Settlement"] - t["Purchase"], delivered),
+        "Cost per Delivered Order": safe(t["Purchase"], delivered),
+        "Settlement per Delivered Order": safe(t["Settlement"], delivered),
     }
 
 

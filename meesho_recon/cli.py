@@ -77,6 +77,9 @@ def main(argv=None) -> int:
                          "(default: <data folder>/SKU_COSTS.xlsx)")
     ap.add_argument("--report-only", action="store_true",
                     help="run the report even with no costs; profit excludes product cost")
+    ap.add_argument("--include-in-flight", action="store_true",
+                    help="also count orders still in transit (default: terminal states only, "
+                         "so per-order economics are not diluted by unfinished journeys)")
     ap.add_argument("--rate-card", type=Path, help="JSON: {courier: {forward: x, return: y}}")
     ap.add_argument("--out", type=Path, default=Path("output/reconciliation.xlsx"))
     ap.add_argument("--config", type=Path, help="JSON overrides for Config")
@@ -197,8 +200,15 @@ def main(argv=None) -> int:
                          .set_index("sub_order_no")["customer_state"])
         df["state"] = df["sub_order_no"].map(smap).fillna("Unknown")
 
+    final_only = not args.include_in_flight
+    if final_only and "is_final" in df.columns:
+        in_flight = int((~df["is_final"] & ~df["is_ads"]).sum())
+        counted = int(df["is_final"].sum())
+        print(f"  counting {counted:,} orders in a final state; "
+              f"{in_flight:,} still in transit excluded from per-order figures")
+
     tot = engine.totals(df)
-    kpi = reports.kpis(df)
+    kpi = reports.kpis(df, final_only)
     print("\n" + "=" * 68)
     print("STEP 2 of 2 — full reconciliation")
     print("=" * 68)
@@ -217,8 +227,8 @@ def main(argv=None) -> int:
     out = excel_out.write_report(
         args.out,
         kpis=kpi,
-        sku=reports.sku_report(df),
-        state=reports.state_report(df),
+        sku=reports.sku_report(df, final_only),
+        state=reports.state_report(df, final_only),
         suborder=reports.suborder_report(df),
         overcharge=reports.overcharge_report(df),
         pending=reports.pending_payments(orders_df, df),
