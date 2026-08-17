@@ -144,14 +144,20 @@ def main(argv=None) -> int:
     priced = set(costs_df["sku_key"]) if not costs_df.empty else set()
     real = df.loc[~df["is_ads"]].copy()
     real["supplier_sku"] = real["supplier_sku"].astype(str)
+    # Average sale price is quoted per DELIVERED unit: averaging across RTO rows,
+    # which settle at about zero, drags the figure well below what the product
+    # actually fetches and would push the seller into under-pricing.
+    delivered_rows = real[real["delivered"] > 0]
+    avg_sale = (delivered_rows.groupby("supplier_sku")["settlement"].sum()
+                / delivered_rows.groupby("supplier_sku")["delivered"].sum())
     catalogue = (real.groupby("supplier_sku")
                      .agg(product_name=("product_name", "first"),
                           orders=("total_order", "sum"),
                           delivered=("delivered", "sum"),
-                          avg_sale=("total_sales2", "mean"),
                           sku_key=("substitute_sku", "first"))
                      .sort_values("orders", ascending=False).reset_index()
                      .rename(columns={"supplier_sku": "sku"}))
+    catalogue["avg_sale"] = catalogue["sku"].map(avg_sale).fillna(0.0)
     unpriced = catalogue.loc[~catalogue["sku_key"].isin(priced), "sku"].tolist()
 
     if unpriced:

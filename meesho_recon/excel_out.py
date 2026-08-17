@@ -109,9 +109,14 @@ COST_HELP = [
     "             anything else you spend to get it ready to ship, as a single",
     "             number. Nothing else to break out.",
     "",
-    "Product Name / Orders / Delivered / Avg Sale Price come from your own data and",
-    "are there to help you price each SKU -- do not edit them. Rows are sorted by",
-    "order volume, so the SKUs at the top move the profit number the most.",
+    "Product Name / Orders / Delivered / Avg Settlement per Delivered come from",
+    "your own data -- do not edit them. Rows are sorted by order volume, so the",
+    "SKUs at the top move the profit number the most.",
+    "",
+    "Avg Settlement per Delivered is what Meesho actually paid you for one",
+    "delivered unit, after its commission and fees. Your Final Cost must sit",
+    "clearly below that number, because RTO and returns still have to be paid",
+    "for out of the margin the delivered units earn.",
     "",
     "Leave a row blank only if you genuinely do not sell it; blank rows are",
     "reported as unpriced and their profit will be overstated.",
@@ -130,7 +135,8 @@ def write_cost_template(path: Path, skus: pd.DataFrame,
     path.parent.mkdir(parents=True, exist_ok=True)
     existing = existing or {}
 
-    cols = ["SKU", "Final Cost", "Product Name", "Orders", "Delivered", "Avg Sale Price"]
+    cols = ["SKU", "Final Cost", "Product Name", "Orders", "Delivered",
+            "Avg Settlement per Delivered"]
     rows = []
     for _, r in skus.iterrows():
         prev = existing.get(str(r["sku"]), {})
@@ -140,7 +146,7 @@ def write_cost_template(path: Path, skus: pd.DataFrame,
             "Product Name": str(r.get("product_name", ""))[:70],
             "Orders": r.get("orders", 0),
             "Delivered": r.get("delivered", 0),
-            "Avg Sale Price": r.get("avg_sale", 0),
+            "Avg Settlement per Delivered": r.get("avg_sale", 0),
         })
     df = pd.DataFrame(rows, columns=cols)
 
@@ -156,7 +162,7 @@ def write_cost_template(path: Path, skus: pd.DataFrame,
                       "profit cannot be calculated until these are filled")
         ws.cell(row=2, column=1).font = NOTE_FONT
 
-        widths = [30, 14, 58, 10, 11, 15]
+        widths = [30, 14, 54, 10, 11, 20]
         for j, (col, w) in enumerate(zip(cols, widths), start=1):
             c = ws.cell(row=4, column=j)
             c.fill, c.font = HEAD_FILL, HEAD_FONT

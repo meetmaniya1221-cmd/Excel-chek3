@@ -101,10 +101,62 @@ filled, step 2 reported "all 26 SKUs priced" and produced the full P&L.
   per sub-order from the returns exports (Shadowfax 900, PocketShip 488,
   Delhivery 236, Valmo 152, Xpress Bees 84) and remains available for reporting.
 
+## Result with costs supplied (all 26 SKUs priced)
+
+```
+Delivered 3,742 orders   settlement 785,967   cost 703,455   margin  +82,512
+RTO       1,558 orders   settlement   3,936   cost  29,545   drag    -25,609
+Returns     497 orders   settlement -68,050   cost  22,620   drag    -90,670
+Exchange/cancel/shipped                                       drag     +2,632
+Ads spend                                                            -28,524
+                                                              FINAL  -59,660
+GST position                                                        -105,231
+                                                    FINAL incl GST  -164,891
+```
+
+**Delivered orders are profitable** (₹210.04 settlement vs ₹187.99 cost per unit).
+The loss comes from what happens to the other 36% of orders, and from one product
+line in particular.
+
+### The loss is concentrated in the CMF line
+
+| Group | SKUs | Orders | Cost/unit | Settlement/unit | Margin/unit | Net P&L |
+|---|---|---|---|---|---|---|
+| CMF (`black CMF`, `CMF buds black`, `orange CMF`, `CMF buds white`) | 4 | 3,230 | 225–227 | 225–235 | **2–8** | **−61,472** |
+| Everything else (Airpod / WA / OB) | 19 | 2,598 | 125–265 | 166–324 | **22–64** | **+30,143** |
+
+A ₹2–8 margin cannot absorb a 15–23% RTO rate plus 9–11% returns. `CMF buds white`
+is already negative before any return (cost 225.00 vs settlement 224.84).
+
+### Returns are the single largest drain
+
+Meesho deducted **₹76,503 of return shipping on 497 returns — ₹153.93 each** — and
+reversed the sale, so return rows settle at **−₹68,050** in total. Returns alone
+cost ₹90,670 against the ₹82,512 the delivered units earned.
+
+Note this qualifies the "customer pays the courier" assumption: forward shipping
+behaves that way, but **return** shipping is deducted from the seller, and at
+roughly ₹154 a time it decides whether the month is profitable.
+
+### Sensitivity: unconfirmed return stock
+
+268 RTO/return units have no record in the returns exports, so the engine cannot
+confirm the stock came back and writes their cost off (`cost_recognition:
+"unrecovered"`). If all of that stock was in fact received back
+(`cost_recognition: "delivered"`):
+
+| Policy | Purchase | Final P&L |
+|---|---|---|
+| `unrecovered` (default, cautious) | 758,220 | **−59,660** |
+| `delivered` (assumes all returns recovered) | 706,055 | **−7,495** |
+
+Either way the month is a loss; the true figure sits between the two and is pinned
+down by a returns export covering the full period.
+
 ## Outstanding inputs
 
-1. **SKU costs** (26 SKUs) — the step-1 sheet is waiting to be filled; this is the
-   only remaining P&L component.
+1. **Returns export covering May–June in full** — would resolve the 268 unconfirmed
+   units and close the ₹52k range above.
 
 Resolved since the first run: the **May 2026 orders export** was supplied, lifting
 payment-row-to-order matching from 55% to **99.8%** (16,337 orders across May and
