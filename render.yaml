@@ -1,0 +1,11 @@
+# One-click deploy on Render (free tier): https://render.com/deploy
+services:
+  - type: web
+    name: meesho-hisab
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    disk:
+      name: portal-data
+      mountPath: /app/portal_data
+      sizeGB: 1

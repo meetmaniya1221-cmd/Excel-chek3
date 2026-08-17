@@ -4,10 +4,31 @@ Meesho seller payments ka poora hisab — reverse-engineered from a third-party
 Excel system (see `docs/REVERSE_ENGINEERING.md`), rebuilt in Python, and served
 as a small web portal.
 
-## Portal chalane ka tarika
+## Portal live karne ke 3 tarike
+
+**1. GitHub Codespaces — seedha is branch se, bina kuch install kiye**
+
+GitHub par is repo me: green **Code** button → **Codespaces** tab →
+**Create codespace**. Khulte hi portal khud start ho jata hai aur browser
+preview me `:8000` par khul jata hai. (GitHub khud Python server host nahi
+karta — Codespace hi "GitHub se live" chalane ka tarika hai; free quota
+~120 ghante/mahina milta hai.)
+
+**2. Internet par 24x7 (Render, free)**
+
+[render.com](https://render.com) par account banao → **New → Blueprint** →
+ye repo chuno — `render.yaml` sab set kar dega, ek public URL mil jayega.
+`portal_data/` ke liye 1GB disk laga hua hai, isliye workspaces bane rahenge.
+(Railway/Fly par bhi chalega — `Dockerfile` aur `Procfile` dono maujood hain.)
+
+**Dhyan:** abhi login/password nahi hai — public URL jo bhi jaanta hai wo sab
+workspaces dekh sakta hai. Isliye Render wala tarika tab tak sirf apne test ke
+liye use karo jab tak login system nahi lagta (wo agla kaam hai).
+
+**3. Apne computer par**
 
 ```bash
-pip install flask pandas openpyxl numpy
+pip install -r requirements.txt
 python run_portal.py            # -> http://localhost:8000
 ```
 
