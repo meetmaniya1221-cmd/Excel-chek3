@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meesho Hisab</title>
+<style>
+:root{--paper:#F6F7F5;--card:#fff;--ink:#1B2420;--mut:#5B6660;--acc:#0B6B57;
+--soft:#E3EFEA;--line:#DDE2DD;--warn:#8F6400;--wsoft:#FFF6D8;--bad:#A63D2F;--bsoft:#F6E4DF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.55 -apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:66rem;margin:0 auto;padding:1.4rem 1rem 4rem}
+header{display:flex;align-items:baseline;gap:.8rem;border-bottom:2px solid var(--ink);
+padding-bottom:.8rem;margin-bottom:1.2rem;flex-wrap:wrap}
+header h1{font-family:Georgia,serif;font-size:1.5rem;margin:0}
+header .sub{color:var(--mut);font-size:.82rem}
+h2{font-family:Georgia,serif;font-size:1.15rem;margin:1.6rem 0 .6rem}
+.card{background:var(--card);border:1px solid var(--line);padding:1rem 1.1rem;margin:.8rem 0}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:none;cursor:pointer;
+padding:.55rem 1.1rem;font-size:.92rem;text-decoration:none;border-radius:3px}
+.btn.sec{background:var(--card);color:var(--acc);border:1px solid var(--acc)}
+.btn:disabled{opacity:.45;cursor:default}
+.mut{color:var(--mut);font-size:.85rem}
+input[type=text]{padding:.5rem .6rem;border:1px solid var(--line);font-size:.95rem;min-width:15rem}
+input[type=file]{font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+background:var(--line);border:1px solid var(--line);margin:.8rem 0}
+.stat{background:var(--card);padding:.7rem .8rem}
+.stat b{display:block;font-family:Georgia,serif;font-size:1.25rem;font-variant-numeric:tabular-nums}
+.stat.neg b{color:var(--bad)}.stat.pos b{color:var(--acc)}
+.stat i{font-style:normal;font-size:.68rem;color:var(--mut);text-transform:uppercase;letter-spacing:.05em}
+.tw{overflow-x:auto;border:1px solid var(--line);background:var(--card);margin:.6rem 0}
+table{border-collapse:collapse;width:100%;font-size:.82rem}
+th{font:700 .68rem ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em;
+text-align:right;color:var(--mut);border-bottom:2px solid var(--ink);padding:.45rem .6rem;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+td{border-bottom:1px solid var(--line);padding:.4rem .6rem;text-align:right;
+font-variant-numeric:tabular-nums;white-space:nowrap}
+td.neg{color:var(--bad)}td.pos{color:var(--acc)}
+.note{border-left:3px solid var(--acc);background:var(--soft);padding:.6rem .9rem;margin:.8rem 0}
+.note.w{border-color:var(--warn);background:var(--wsoft)}
+.note.b{border-color:var(--bad);background:var(--bsoft)}
+.steps{display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0 1rem}
+.step{flex:1;min-width:150px;border:1px solid var(--line);background:var(--card);
+padding:.5rem .7rem;font-size:.8rem;color:var(--mut)}
+.step.on{border-color:var(--acc);color:var(--ink);box-shadow:inset 3px 0 0 var(--acc)}
+.step b{display:block;font-size:.72rem;color:var(--acc)}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--soft);
+border-top-color:var(--acc);border-radius:50%;animation:r .8s linear infinite;vertical-align:-2px}
+@keyframes r{to{transform:rotate(360deg)}}
+ul.files{margin:.4rem 0;padding-left:1.2rem;font-size:.85rem}
+#drop{border:2px dashed var(--line);padding:1.2rem;text-align:center;color:var(--mut);
+border-radius:4px;margin:.6rem 0}
+#drop.hot{border-color:var(--acc);background:var(--soft);color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Meesho Hisab</h1>
+  <span class="sub">sab kuch aapke browser me chalta hai — koi file kahin upload nahi hoti</span>
+</header>
+
+<div class="steps">
+  <div class="step on" id="st1"><b>STEP 1</b>Meesho ki files daalo (payment zip/xlsx ·
+  Orders csv · returns csv · claims csv)</div>
+  <div class="step" id="st2"><b>STEP 2</b>SKU cost sheet download karo, Final Cost bharo,
+  wapis daalo</div>
+  <div class="step" id="st3"><b>STEP 3</b>Hisab isi page par — Excel report bhi download</div>
+</div>
+
+<div class="card">
+  <label class="mut" for="client">Client / firm ka naam</label><br>
+  <input type="text" id="client" placeholder="e.g. Kesri Enterprise" list="clients">
+  <datalist id="clients"></datalist>
+  <span class="mut" id="savednote"></span>
+  <div id="drop">files yahan kheench kar chhodo, ya
+    <label style="color:var(--acc);cursor:pointer;text-decoration:underline">
+      choose karo<input type="file" id="picker" multiple hidden></label>
+  </div>
+  <ul class="files" id="filelist"></ul>
+  <button class="btn" id="go" disabled>Hisab lagao</button>
+  <span class="mut">zip ke andar zip bhi chalega · .rar mat daalo, zip banao</span>
+</div>
+
+<div id="busy" class="note" style="display:none">
+  <span class="spin"></span>&nbsp; <b id="busystep">shuru ho raha hai…</b>
+  <div class="mut">pehli baar Python engine load hota hai (~30 sec, phir cache me rehta hai).
+  Tab band mat karo.</div>
+</div>
+<div id="errbox" class="note b" style="display:none"></div>
+<div id="out"></div>
+</div>
+
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const files = new Map();          // name -> File
+let worker = null, running = false;
+
+// ---------- clients & saved cost sheets (localStorage) ----------
+const clientKey = (n) => "mh_cost_" + n.trim().toLowerCase();
+function savedClients() {
+  return Object.keys(localStorage).filter(k => k.startsWith("mh_cost_"))
+               .map(k => k.slice(8));
+}
+function refreshClients() {
+  $("clients").innerHTML = savedClients()
+    .map(n => `<option value="${n.replace(/"/g, "&quot;")}">`).join("");
+  const n = $("client").value.trim();
+  $("savednote").textContent = n && localStorage.getItem(clientKey(n))
+    ? " — iski purani SKU costs saved hain, khud lag jayengi" : "";
+}
+$("client").addEventListener("input", refreshClients);
+refreshClients();
+
+// ---------- file intake ----------
+function addFiles(list) {
+  for (const f of list) {
+    const ok = /\.(csv|xlsx|xls|xlsb|txt|zip|rar)$/i.test(f.name);
+    if (ok) files.set(f.name, f);
+  }
+  $("filelist").innerHTML = [...files.keys()].map(n => `<li>${n}</li>`).join("");
+  $("go").disabled = files.size === 0 || running;
+}
+$("picker").addEventListener("change", e => addFiles(e.target.files));
+const drop = $("drop");
+drop.addEventListener("dragover", e => { e.preventDefault(); drop.classList.add("hot"); });
+drop.addEventListener("dragleave", () => drop.classList.remove("hot"));
+drop.addEventListener("drop", e => {
+  e.preventDefault(); drop.classList.remove("hot"); addFiles(e.dataTransfer.files);
+});
+
+// ---------- money formatting ----------
+const inr = (v) => {
+  const n = Number(v) || 0, a = Math.abs(n);
+  return (n < 0 ? "−₹" : "₹") + a.toLocaleString("en-IN", { maximumFractionDigits: 0 });
+};
+const pct = (v) => Math.round((Number(v) || 0) * 100) + "%";
+const cls = (v) => Number(v) < 0 ? "neg" : "pos";
+
+// ---------- worker ----------
+function ensureWorker() {
+  if (worker) return worker;
+  worker = new Worker("worker.js?v=1");
+  worker.onmessage = (ev) => {
+    const m = ev.data;
+    if (m.type === "status") { $("busystep").textContent = m.step; return; }
+    running = false; $("go").disabled = files.size === 0;
+    $("busy").style.display = "none";
+    if (m.type === "error") {
+      $("errbox").style.display = "block";
+      $("errbox").innerHTML = "<b>Dikkat:</b> " + m.message;
+      return;
+    }
+    render(m);
+  };
+  worker.onerror = (e) => {
+    running = false; $("go").disabled = false; $("busy").style.display = "none";
+    $("errbox").style.display = "block";
+    $("errbox").innerHTML = "<b>Dikkat:</b> " + e.message;
+  };
+  return worker;
+}
+
+async function run(force) {
+  if (running) return;
+  running = true; $("go").disabled = true;
+  $("errbox").style.display = "none"; $("out").innerHTML = "";
+  $("busy").style.display = "block"; $("busystep").textContent = "shuru ho raha hai…";
+
+  const payload = [];
+  let hasCostSheet = false;
+  for (const [name, f] of files) {
+    if (/sku[_ ]?cost/i.test(name)) hasCostSheet = true;
+    payload.push({ name, buf: await f.arrayBuffer() });
+  }
+  // no cost sheet uploaded this time? use the saved one for this client
+  const cname = $("client").value.trim();
+  if (!hasCostSheet && cname) {
+    const saved = localStorage.getItem(clientKey(cname));
+    if (saved) {
+      const bin = Uint8Array.from(atob(saved), c => c.charCodeAt(0));
+      payload.push({ name: "SKU_COSTS.xlsx", buf: bin.buffer });
+    }
+  }
+  ensureWorker().postMessage({ type: "run", files: payload, force: !!force },
+                             payload.map(p => p.buf));
+}
+$("go").addEventListener("click", () => run(false));
+
+// ---------- download helpers ----------
+function b64Download(b64, name) {
+  const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  const url = URL.createObjectURL(new Blob([bin], {
+    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
+  const a = document.createElement("a");
+  a.href = url; a.download = name; a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+
+// ---------- render ----------
+let last = null;
+function render(m) {
+  last = m;
+  const r = m.result, cname = $("client").value.trim() || "client";
+  if (m.cost_b64 && cname) {           // remember costs for next month
+    try { localStorage.setItem(clientKey($("client").value.trim() || cname), m.cost_b64); }
+    catch (e) {}
+    refreshClients();
+  }
+  $("st2").classList.toggle("on", r.status === "needs_costs");
+  $("st3").classList.toggle("on", r.status === "ready");
+  const h = [];
+
+  if (r.warnings) for (const w of r.warnings)
+    h.push(`<div class="note w">${w}</div>`);
+
+  if (r.status === "error") {
+    h.push(`<div class="note b"><b>Dikkat:</b> ${r.message}</div>`);
+    $("out").innerHTML = h.join(""); return;
+  }
+
+  const c = r.counts;
+  h.push(`<p class="mut">${c.payment_rows.toLocaleString("en-IN")} payment rows ·
+    ${c.orders.toLocaleString("en-IN")} orders · ${c.returns.toLocaleString("en-IN")} returns ·
+    ${c.claims.toLocaleString("en-IN")} claim tickets · ${c.skus} SKU</p>`);
+
+  if (r.status === "needs_costs") {
+    h.push(`<div class="note w"><b>${c.unpriced_skus} SKU ki cost chahiye</b>
+      (kul ${c.skus}). Sheet download karo, yellow <b>Final Cost</b> column bharo,
+      upar usi file-box me wapis daal kar "Hisab lagao" dabao.</div>
+      <p><button class="btn" onclick="b64Download(last.cost_b64,'SKU_COSTS_${cname}.xlsx')">
+      SKU cost sheet download</button>`);
+    if (c.unpriced_skus < c.skus)
+      h.push(` <button class="btn sec" onclick="run(true)">
+        in ${c.unpriced_skus} SKU ke bina hi report banao</button>`);
+    h.push(`</p>`);
+    if (r.top_skus && r.top_skus.length) {
+      h.push(`<div class="tw"><table><tr><th>SKU</th><th>Orders</th>
+        <th>Avg settlement/delivered</th></tr>`);
+      for (const s of r.top_skus)
+        h.push(`<tr><td>${s.sku}</td><td>${s.orders}</td><td>${inr(s.avg_sale)}</td></tr>`);
+      h.push(`</table></div>`);
+    }
+    $("out").innerHTML = h.join(""); return;
+  }
+
+  // ready
+  const b = r.bridge;
+  h.push(`<h2>Hisab</h2>
+  <div class="grid">
+    <div class="stat"><b>${b.orders.toLocaleString("en-IN")}</b><i>orders (final)</i></div>
+    <div class="stat"><b>${b.delivered.toLocaleString("en-IN")}</b><i>delivered</i></div>
+    <div class="stat"><b>${b.rto.toLocaleString("en-IN")}</b><i>RTO</i></div>
+    <div class="stat"><b>${b.customer_return.toLocaleString("en-IN")}</b><i>customer return</i></div>
+    <div class="stat"><b>${b.pending_payments.toLocaleString("en-IN")}</b><i>payment pending</i></div>
+  </div>
+  <div class="grid">
+    <div class="stat"><b>${inr(b.settlement)}</b><i>bank settlement</i></div>
+    <div class="stat"><b>${inr(b.purchase)}</b><i>product cost</i></div>
+    <div class="stat"><b>${inr(b.ads)}</b><i>ads</i></div>
+    <div class="stat ${cls(b.operating_pl)}"><b>${inr(b.operating_pl)}</b><i>operating P&amp;L</i></div>
+    <div class="stat"><b>${inr(b.gst)}</b><i>GST @ settlement</i></div>
+    <div class="stat ${cls(b.final_pl)}"><b>${inr(b.final_pl)}</b><i>FINAL P&amp;L</i></div>
+  </div>
+  <p><button class="btn" onclick="b64Download(last.report_b64,'Hisab_${cname}.xlsx')">
+     Poori Excel report download</button>
+     <button class="btn sec" onclick="b64Download(last.cost_b64,'SKU_COSTS_${cname}.xlsx')">
+     cost sheet (update ke liye)</button>
+     ${b.in_flight ? `<span class="mut">${b.in_flight} orders abhi raste me — hisab me nahi gine.</span>` : ""}</p>`);
+
+  if (c.unpriced_skus)
+    h.push(`<div class="note w">${c.unpriced_skus} SKU bina cost ke hain — unka profit
+      zyada dikh raha hai.</div>`);
+
+  h.push(`<h2>SKU ka hisab <span class="mut">(ghata pehle)</span></h2>
+  <div class="tw"><table><tr><th>SKU</th><th>Orders</th><th>Del.</th><th>RTO</th>
+  <th>Ret.</th><th>RTO %</th><th>Settle/unit</th><th>Cost/unit</th>
+  <th>Margin/unit</th><th>Net P&amp;L</th></tr>`);
+  for (const s of r.sku_table)
+    h.push(`<tr><td>${s.sku}</td><td>${s.orders}</td><td>${s.delivered}</td>
+      <td>${s.rto}</td><td>${s.ret}</td><td>${pct(s.rto_pct)}</td>
+      <td>${inr(s.settle_per)}</td><td>${inr(s.cost_per)}</td>
+      <td class="${cls(s.margin_per)}">${inr(s.margin_per)}</td>
+      <td class="${cls(s.net)}">${inr(s.net)}</td></tr>`);
+  h.push(`</table></div>`);
+
+  if (r.state_table && r.state_table.length) {
+    h.push(`<h2>State ka hisab</h2><div class="tw"><table>
+    <tr><th>State</th><th>Orders</th><th>Delivered</th><th>RTO</th><th>RTO %</th>
+    <th>Settlement</th><th>Net P&amp;L</th></tr>`);
+    for (const s of r.state_table.slice(0, 25))
+      h.push(`<tr><td>${s.state}</td><td>${s.orders}</td><td>${s.delivered}</td>
+        <td>${s.rto}</td><td>${pct(s.rto_pct)}</td><td>${inr(s.settle)}</td>
+        <td class="${cls(s.net)}">${inr(s.net)}</td></tr>`);
+    h.push(`</table></div>`);
+  }
+  $("out").innerHTML = h.join("");
+}
+</script>
+</body>
+</html>

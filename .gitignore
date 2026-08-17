@@ -9,5 +9,7 @@ raw/
 *.pkl
 *.rar
 *.zip
+# ...but the vendored Pyodide runtime must ship with the site
+!pyodide/*.zip
 portal_data/
 nohup.out

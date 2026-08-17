@@ -90,7 +90,12 @@ def correct_status(df: pd.DataFrame, orders: pd.DataFrame, returns: pd.DataFrame
       * rows with no status but a settlement are resolved from the orders file
     Anything unexplained keeps Meesho's own status.
     """
-    raw = _col(df, "live_order_status").astype(str).str.strip()
+    # A missing cell must behave as blank everywhere: depending on the pandas
+    # build, an empty Excel cell can surface as NaN, None or the string "nan",
+    # and a blank that slips through unmapped would strand the row as
+    # non-terminal instead of being filled from the orders file.
+    raw = (_col(df, "live_order_status").astype(str).str.strip()
+           .replace({"nan": "", "None": "", "NaN": "", "<NA>": ""}))
     status = raw.str.upper().map(ORDER_STATUS_MAP).fillna(raw)
 
     if orders is not None and not orders.empty and "order_status" in orders.columns:
