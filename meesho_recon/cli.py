@@ -1,8 +1,16 @@
-"""Command line entry point.
+"""Command line entry point -- a two-step flow.
 
-    python -m meesho_recon.cli --data ./raw --out ./output/report.xlsx
+    Step 1   python -m meesho_recon.cli --data ./raw
+             Reads the Meesho downloads and writes SKU_COSTS.xlsx: every SKU found,
+             with empty Product Cost / Packaging Cost / GST columns to fill in.
+             It stops there, because profit cannot be computed without those costs.
 
-Files are classified by content, so a single folder of mixed Meesho downloads works.
+    Step 2   (drop the filled SKU_COSTS.xlsx back into ./raw)
+             python -m meesho_recon.cli --data ./raw
+             The costs are picked up automatically and the full reconciliation runs.
+
+Pass --report-only to skip step 1 and get everything except product cost and profit.
+Files are classified by content, so one folder of mixed Meesho downloads works.
 """
 from __future__ import annotations
 
@@ -65,7 +73,10 @@ def main(argv=None) -> int:
     ap.add_argument("--costs", type=Path, nargs="*", default=[])
     ap.add_argument("--claims", type=Path, nargs="*", default=[])
     ap.add_argument("--cost-template", type=Path,
-                    help="write a SKU cost sheet to fill in, listing every SKU seen")
+                    help="where to write the SKU cost sheet "
+                         "(default: <data folder>/SKU_COSTS.xlsx)")
+    ap.add_argument("--report-only", action="store_true",
+                    help="run the report even with no costs; profit excludes product cost")
     ap.add_argument("--rate-card", type=Path, help="JSON: {courier: {forward: x, return: y}}")
     ap.add_argument("--out", type=Path, default=Path("output/reconciliation.xlsx"))
     ap.add_argument("--config", type=Path, help="JSON overrides for Config")
@@ -130,18 +141,50 @@ def main(argv=None) -> int:
     print("Running reconciliation ...")
     df = engine.run(pay, orders_df, returns_df, costs_df, cfg, ads=ads_df)
 
-    if args.cost_template:
-        seen = (df.loc[~df["is_ads"]]
-                  .groupby("supplier_sku")
-                  .agg(orders=("total_order", "sum"), delivered=("delivered", "sum"),
-                       avg_sale=("total_sales2", "mean"))
-                  .sort_values("orders", ascending=False).reset_index())
-        seen.insert(1, "product_cost", "")
-        seen.insert(2, "packaging_cost", "")
-        seen.insert(3, "gst_pct", "")
-        args.cost_template.parent.mkdir(parents=True, exist_ok=True)
-        seen.rename(columns={"supplier_sku": "sku"}).to_excel(args.cost_template, index=False)
-        print(f"Cost template written: {args.cost_template} ({len(seen)} SKUs to price)")
+    priced = set(costs_df["sku_key"]) if not costs_df.empty else set()
+    real = df.loc[~df["is_ads"]].copy()
+    real["supplier_sku"] = real["supplier_sku"].astype(str)
+    catalogue = (real.groupby("supplier_sku")
+                     .agg(product_name=("product_name", "first"),
+                          orders=("total_order", "sum"),
+                          delivered=("delivered", "sum"),
+                          avg_sale=("total_sales2", "mean"),
+                          sku_key=("substitute_sku", "first"))
+                     .sort_values("orders", ascending=False).reset_index()
+                     .rename(columns={"supplier_sku": "sku"}))
+    unpriced = catalogue.loc[~catalogue["sku_key"].isin(priced), "sku"].tolist()
+
+    if unpriced:
+        dest = args.cost_template or ((args.data or args.out.parent) / "SKU_COSTS.xlsx")
+        known = ({r["sku_key"]: r.to_dict() for _, r in costs_df.iterrows()}
+                 if not costs_df.empty else {})
+        existing = {str(r["sku"]): known.get(ingest.clean_sku(r["sku"]), {})
+                    for _, r in catalogue.iterrows()}
+        excel_out.write_cost_template(dest, catalogue, existing)
+
+        if not args.report_only:
+            print(f"\n{'=' * 68}")
+            print(f"STEP 1 of 2 — costs needed for {len(unpriced)} of "
+                  f"{len(catalogue)} SKUs")
+            print("=" * 68)
+            print(f"\n  Cost sheet written:  {dest}")
+            print("\n  Open it, fill the yellow columns (Product Cost, Packaging Cost,")
+            print("  Purchase GST %), save, and put the file back in:")
+            print(f"      {args.data or dest.parent}")
+            print("\n  Then run the same command again and the full profit")
+            print("  calculation will run automatically.")
+            print("\n  Top SKUs by order volume:")
+            for _, r in catalogue.head(10).iterrows():
+                print(f"      {int(r['orders']):5d} orders  avg sale "
+                      f"{r['avg_sale']:8.2f}   {r['sku']}")
+            if len(catalogue) > 10:
+                print(f"      ... and {len(catalogue) - 10} more in the sheet")
+            print()
+            return 2
+        print(f"\n  ! {len(unpriced)} SKUs have no cost -- product cost and profit "
+              f"are understated.\n    Cost sheet written to {dest}")
+    else:
+        print(f"  all {len(priced)} SKUs priced -- product cost included")
 
     if orders_df is not None and not orders_df.empty and "customer_state" in orders_df.columns:
         smap = (orders_df.drop_duplicates("sub_order_no")
@@ -150,6 +193,9 @@ def main(argv=None) -> int:
 
     tot = engine.totals(df)
     kpi = reports.kpis(df)
+    print("\n" + "=" * 68)
+    print("STEP 2 of 2 — full reconciliation")
+    print("=" * 68)
     print("\n--- KPIs " + "-" * 52)
     for k, v in kpi.items():
         print(f"  {k:26s} {v:>18,.2f}")

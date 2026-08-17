@@ -91,3 +91,106 @@ def write_report(path: Path, *, kpis: dict, sku: pd.DataFrame, state: pd.DataFra
         if validation is not None:
             _write_sheet(writer, "Validation", validation, total_row=False)
     return path
+
+
+# --------------------------------------------------------------------------
+# Step 1 of the two-step flow: the SKU cost sheet the seller fills in.
+# --------------------------------------------------------------------------
+
+INPUT_FILL = PatternFill("solid", fgColor="FFF6D8")     # cells the seller edits
+INPUT_FONT = Font(name="Arial", size=10, color="0000FF")
+NOTE_FONT = Font(name="Arial", size=9, italic=True, color="5B6660")
+TITLE_FONT = Font(name="Arial", size=13, bold=True, color="0B6B57")
+
+COST_HELP = [
+    "Fill the three yellow columns for every SKU below, then send this file back.",
+    "",
+    "Product Cost      what you pay your supplier for one unit (before packaging)",
+    "Packaging Cost    packing material per unit; leave 0 if already inside product cost",
+    "Purchase GST %    input GST credit you can claim on the purchase; 0 if you buy",
+    "                  without a GST invoice. Enter 18 for 18%, not 0.18.",
+    "",
+    "Cost Incl. GST?   Y if Product Cost already includes GST, otherwise N.",
+    "",
+    "Orders / Delivered / Avg Sale Price are filled in from your data to help you",
+    "price each SKU -- do not edit them. Rows are sorted by order volume, so the",
+    "SKUs at the top move the profit number the most.",
+]
+
+
+def write_cost_template(path: Path, skus: pd.DataFrame,
+                        existing: dict[str, dict] | None = None) -> Path:
+    """Write the fill-in-the-costs workbook.
+
+    `skus` needs: sku, product_name, orders, delivered, avg_sale.
+    `existing` pre-fills costs already known from an earlier round, so a seller
+    who adds new SKUs next month only fills the new rows.
+    """
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    existing = existing or {}
+
+    cols = ["SKU", "Product Cost", "Packaging Cost", "Purchase GST %", "Cost Incl. GST?",
+            "Product Name", "Orders", "Delivered", "Avg Sale Price"]
+    rows = []
+    for _, r in skus.iterrows():
+        prev = existing.get(str(r["sku"]), {})
+        rows.append({
+            "SKU": r["sku"],
+            "Product Cost": prev.get("product_cost", None),
+            "Packaging Cost": prev.get("packaging_cost", None),
+            "Purchase GST %": prev.get("gst_pct", None),
+            "Cost Incl. GST?": prev.get("cost_incl_gst", None),
+            "Product Name": str(r.get("product_name", ""))[:70],
+            "Orders": r.get("orders", 0),
+            "Delivered": r.get("delivered", 0),
+            "Avg Sale Price": r.get("avg_sale", 0),
+        })
+    df = pd.DataFrame(rows, columns=cols)
+
+    with pd.ExcelWriter(path, engine="openpyxl") as writer:
+        df.to_excel(writer, sheet_name="SKU Costs", index=False, startrow=3)
+        ws = writer.sheets["SKU Costs"]
+
+        ws.cell(row=1, column=1, value="SKU Costs — fill the yellow columns and send back")
+        ws.cell(row=1, column=1).font = TITLE_FONT
+        ws.cell(row=2, column=1,
+                value=f"{len(df)} SKUs from your uploaded data · "
+                      "profit cannot be calculated until these are filled")
+        ws.cell(row=2, column=1).font = NOTE_FONT
+
+        widths = [26, 13, 15, 14, 15, 52, 10, 11, 14]
+        for j, (col, w) in enumerate(zip(cols, widths), start=1):
+            c = ws.cell(row=4, column=j)
+            c.fill, c.font = HEAD_FILL, HEAD_FONT
+            c.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+            ws.column_dimensions[get_column_letter(j)].width = w
+
+        for i in range(len(df)):
+            r = 5 + i
+            for j in range(1, len(cols) + 1):
+                c = ws.cell(row=r, column=j)
+                c.border = BORDER
+                if 2 <= j <= 5:                       # the seller's input columns
+                    c.fill, c.font = INPUT_FILL, INPUT_FONT
+                    if j <= 3:
+                        c.number_format = MONEY_FMT
+                else:
+                    c.font = BODY_FONT
+                    if j in (7, 8):
+                        c.number_format = INT_FMT
+                    elif j == 9:
+                        c.number_format = MONEY_FMT
+
+        ws.freeze_panes = "A5"
+        ws.auto_filter.ref = f"A4:{get_column_letter(len(cols))}{len(df) + 4}"
+
+        help_df = pd.DataFrame({"How to fill this sheet": COST_HELP})
+        help_df.to_excel(writer, sheet_name="Instructions", index=False)
+        hw = writer.sheets["Instructions"]
+        hw.column_dimensions["A"].width = 96
+        hw.cell(row=1, column=1).font = HEAD_FONT
+        hw.cell(row=1, column=1).fill = HEAD_FILL
+        for i in range(len(COST_HELP)):
+            hw.cell(row=2 + i, column=1).font = BODY_FONT
+    return path

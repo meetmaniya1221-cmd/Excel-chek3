@@ -64,9 +64,35 @@ Final P&L incl. GST position      593,329.33
 `Purchase = 0` and profit is overstated by exactly the cost of goods sold.
 `output/SKU_COST_TEMPLATE.xlsx` lists all 26 SKUs awaiting a price.
 
+## How the tool is driven (two steps)
+
+Profit cannot be computed without product cost, and Meesho never supplies it, so
+the CLI refuses to guess and asks for it once:
+
+```
+Step 1   python -m meesho_recon.cli --data ./raw
+         Reads every Meesho download, then writes raw/SKU_COSTS.xlsx: one row per
+         SKU with empty Product Cost / Packaging Cost / Purchase GST % columns
+         (yellow), alongside product name, order count, delivered count and
+         average sale price so each SKU can be priced in context. Sorted by
+         order volume, highest impact first. Exits without a report.
+
+Step 2   (seller fills the yellow columns, saves the file back into ./raw)
+         python -m meesho_recon.cli --data ./raw
+         The cost sheet is picked up automatically -- no flag, no renaming --
+         and the full reconciliation runs.
+```
+
+A later month only needs the new SKUs filled: existing costs are carried into the
+regenerated sheet. `--report-only` runs everything except product cost and profit.
+
+Verified on this dataset: step 1 emitted 26 SKUs and stopped; after the sheet was
+filled, step 2 reported "all 26 SKUs priced" and produced the full P&L.
+
 ## Outstanding inputs
 
-1. **SKU cost master** (26 SKUs) — blocks the only missing P&L component.
+1. **SKU cost master** (26 SKUs) — the step-1 sheet is waiting to be filled;
+   it is the only missing P&L component.
 2. **May 2026 orders export** — 2,638 payment rows (45%) are for orders placed in
    May and settled in June, so their customer state is unknown and the State
    report groups them under "Unknown".
